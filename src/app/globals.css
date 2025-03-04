@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
+
+*{
+    font-family: "Noto Sans Thai", sans-serif;
+}
+
+.section-container {
+    @apply max-w-screen-2xl container mx-auto xl:px-24 px-4;
+  }
+  
+  .title {
+    @apply text-4xl md:text-5xl md:leading-snug font-bold my-2;
+  }
+  
+  .subtitle {
+    @apply text-red-500 uppercase tracking-wide font-semibold text-lg;
+  }
+  
+  .active {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    color: rgb(56, 163, 56);
+  }
