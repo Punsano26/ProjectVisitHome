@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer">
         <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10 ">
           <aside>
-            <img className="w-20 h-20" src="./logoschool.png" alt="" />
+            <img className="w-20 h-20" src="../logoschool.png" alt="" />
             <p>
               โรงเรียนบางแพปฐมพิทยา
               <br />

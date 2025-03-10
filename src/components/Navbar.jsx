@@ -47,7 +47,7 @@ const Navbar = () => {
             </ul>
           </div> */}
           <a className="btn btn-ghost text-sm">
-            <img src="./logoschool.png" alt="logoschool" className="w-8 h-8" />
+            <img src="../logoschool.png" alt="logoschool" className="w-8 h-8" />
             <h3 className="hidden md:block md:text-sm">
               ระบบบันทึกการเยี่ยมบ้านโรงเรียนบางแพปฐมพิทยา
             </h3>
