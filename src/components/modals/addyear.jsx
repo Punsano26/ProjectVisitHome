@@ -6,7 +6,7 @@ const addyear = () => {
       <dialog id="add_year" className="modal">
         <div className="modal-box flex flex-col items-center justify-center w-11/12">
           <h3 className="font-bold text-lg text-center">ปีการศึกษา</h3>
-          <input className="text-center rounded-md mt-2" type="date" />
+          <input className="text-center rounded-md mt-2 w-64 md:w-72 border h-12" type="date" />
           <div className="modal-action">
             <form method="dialog mt-2">
               <button className="btn bg-red-400 mr-8">ยกเลิก</button>

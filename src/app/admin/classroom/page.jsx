@@ -2,6 +2,8 @@
 import React from 'react'
 import { BiSolidEdit } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
+import ModalAddStudent from '../../../components/modals/addstudent';
+
 const page = () => {
   return (
     <div className='p-2'>
@@ -50,7 +52,7 @@ const page = () => {
               <input type="search" required placeholder="กรอกชื่อนักเรียน" />
             </label>
             <button 
-            onClick={()=>document.getElementById('add_class').showModal()}
+            onClick={()=>document.getElementById('add_student').showModal()}
             className="btn btn-success">เพิ่มชั้นเรียน</button>
           </div>
         </div>
@@ -109,6 +111,7 @@ const page = () => {
                    </tbody>
                  </table>
                </div>
+               <ModalAddStudent/>
     </div>
   )
 }

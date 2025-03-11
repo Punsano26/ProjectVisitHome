@@ -2,6 +2,8 @@
 import React from "react";
 import { BiSolidEdit } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
+import ModalAddPersonnel from "../../../components/modals/addpersonnel";
+
 const page = () => {
   return (
     <div className="p-2">
@@ -48,13 +50,16 @@ const page = () => {
             <input type="search" required placeholder="กรอกรายชื่อบุคลากร" />
           </label>
           <button
-            onClick={() => document.getElementById("add_class").showModal()}
+            onClick={() => document.getElementById("add_personnel").showModal()}
             className="btn btn-success"
           >
             เพิ่มบุคลากร
           </button>
         </div>
       </div>
+      {/* Modal เพิ่มบุคลากร */}
+      <ModalAddPersonnel />
+
 
       {/* ตารางแสดงรายชื่อนักเรียนขอห้องนี้ */}
       <div className="overflow-x-auto">
