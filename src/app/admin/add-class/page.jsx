@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import { BiSolidEdit } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
+import ModalAddClass from "../../../components/modals/addclass";
 
 const page = () => {
   return (
@@ -27,14 +29,55 @@ const page = () => {
           </div>
         </div>
         {/* ฟีเจอร์เสริม */}
-        <label className="input">
-  <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2.5" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></g></svg>
-  <input type="search" required placeholder="Search"/>
-</label>
+        <div className="flex items-center justify-between m-2 mt-4 mb-4">
+          {/* Dropdown ชิดซ้าย */}
+          <div className="dropdown dropdown-bottom mr-4">
+            <div tabIndex={0} role="button" className="btn">
+              ทั้งหมด
+            </div>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+            >
+              <li>
+                <a>Item 1</a>
+              </li>
+              <li>
+                <a>Item 2</a>
+              </li>
+            </ul>
+          </div>
 
+          {/* Search + Button ชิดขวา */}
+          <div className="flex items-center gap-4">
+            <label className="input">
+              <svg
+                className="h-[1em] opacity-50"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  strokeWidth="2.5"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.3-4.3"></path>
+                </g>
+              </svg>
+              <input type="search" required placeholder="กรอกชื่อนักเรียน" />
+            </label>
+            <button 
+            onClick={()=>document.getElementById('add_class').showModal()}
+            className="btn btn-success">เพิ่มชั้นเรียน</button>
+          </div>
+        </div>
+        <ModalAddClass />
 
         {/* ตารางชั้นเรียน */}
-        
+
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}
@@ -45,9 +88,9 @@ const page = () => {
                     <input type="checkbox" className="checkbox" />
                   </label>
                 </th>
-                <th>ชั้นเรียน</th>
-                <th>จำนวนสมาชิก</th>
-                <th>แก้ไขและลบ</th>
+                <th className="text-center">ชั้นเรียน</th>
+                <th className="text-center">จำนวนสมาชิก</th>
+                <th className="text-center">แก้ไขและลบ</th>
               </tr>
             </thead>
             <tbody>
@@ -58,8 +101,8 @@ const page = () => {
                     <input type="checkbox" className="checkbox" />
                   </label>
                 </th>
-                <td>ม.4/1</td>
-                <td>
+                <td className="text-center">ม.4/1</td>
+                <td className="text-center">
                   <span>32</span> คน
                 </td>
                 <td>
