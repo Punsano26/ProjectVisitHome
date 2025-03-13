@@ -2,7 +2,7 @@
 import React from 'react'
 import { BiSolidEdit } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
-import ModalAddStudent from '../../../components/modals/addstudent';
+import ModalAddStudent from '@components/modals/addstudent';
 
 const page = () => {
   return (

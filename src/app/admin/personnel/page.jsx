@@ -2,7 +2,9 @@
 import React from "react";
 import { BiSolidEdit } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
-import ModalAddPersonnel from "../../../components/modals/addpersonnel";
+import addpersonnel from "@components/modals/addpersonnel";
+
+
 
 const page = () => {
   return (
@@ -58,7 +60,7 @@ const page = () => {
         </div>
       </div>
       {/* Modal เพิ่มบุคลากร */}
-      <ModalAddPersonnel />
+      <addpersonnel />
 
 
       {/* ตารางแสดงรายชื่อนักเรียนขอห้องนี้ */}
