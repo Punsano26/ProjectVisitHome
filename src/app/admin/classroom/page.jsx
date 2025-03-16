@@ -6,7 +6,7 @@ import ModalAddStudent from '@components/modals/addstudent';
 
 const page = () => {
   return (
-    <div className='p-2'>
+    <div className='p-2 h-screen'>
          <h5 className="text-center font-bold">
           มัธยมศึกษาปีที่<span>5/1</span>
         </h5>

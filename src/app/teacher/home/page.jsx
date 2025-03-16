@@ -54,7 +54,8 @@ const page = () => {
           </label>
         </div>
       </div>
-      <button className="btn btn-success">พิมพ์รายชื่อนักเรียน</button>
+      <div className="items-center flex justify-center mb-4 md:justify-start md:ml-4 "><button className="btn btn-success">พิมพ์รายชื่อนักเรียน</button></div>
+      
       {/* ตารางแสดงรายชื่อนักเรียนขอห้องนี้ */}
       <div className="overflow-x-auto">
         <table className="table">
@@ -122,14 +123,16 @@ const page = () => {
                 <td>
                   <span>{student.lastname}</span>
                 </td>
+
                 {/* ใช้ Ternary Operator */}
                 <td className="text-center">
                   {student.status_visit !== "เยี่ยมแล้ว" ? (
-                    <span className="inline-flex items-center rounded-md bg-red-300 px-2 py-1 text-xs font-medium text-red-800 ring-1 ring-red-600/20 ring-inset">
+                    
+                    <span className="badge badge-soft badge-error">
                       {student.status_visit}
                     </span>
                   ) : (
-                    <span className="inline-flex items-center rounded-md bg-emerald-300 px-2 py-1 text-xs font-medium text-green-800 ring-1 ring-green-600/20 ring-inset">
+                    <span className="badge badge-soft badge-success">
                       {student.status_visit}
                     </span>
                   )}
