@@ -1,10 +1,10 @@
 import React from "react";
 
-const addclass = () => {
+const ModalEditClass = () => {
   return (
-    <dialog id="add_class" className="modal">
+    <dialog id="edit_class" className="modal">
       <div className="modal-box flex flex-col items-center justify-center w-11/12">
-        <h3 className="font-bold text-lg text-center">เพิ่มชั้นเรียน</h3>
+        <h3 className="font-bold text-lg text-center">แก้ไขชั้นเรียน</h3>
         <div className="flex flex-col items-center justify-center">
           <fieldset className="fieldset">
             <legend className="fieldset-legend">ชั้นเรียน :</legend>
@@ -36,4 +36,4 @@ const addclass = () => {
   );
 };
 
-export default addclass;
+export default ModalEditClass;

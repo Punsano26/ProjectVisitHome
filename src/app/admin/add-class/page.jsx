@@ -3,10 +3,11 @@ import React from "react";
 import { BiSolidEdit } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
 import ModalAddClass from "../../../components/modals/addclass";
+import ModalEditClass from "@componentsmodals/editClass";
 
 const page = () => {
   return (
-    <>
+    <div className="h-[71.5vh]">
       <div className="p-2">
         <h5 className="text-center font-bold">
           เพิ่มชั้นเรียนของปีการศึกษา<span>2565</span>
@@ -69,9 +70,12 @@ const page = () => {
               </svg>
               <input type="search" required placeholder="กรอกชื่อนักเรียน" />
             </label>
-            <button 
-            onClick={()=>document.getElementById('add_class').showModal()}
-            className="btn btn-success">เพิ่มชั้นเรียน</button>
+            <button
+              onClick={() => document.getElementById("add_class").showModal()}
+              className="btn btn-success"
+            >
+              เพิ่มชั้นเรียน
+            </button>
           </div>
         </div>
         <ModalAddClass />
@@ -105,18 +109,26 @@ const page = () => {
                 <td className="text-center">
                   <span>32</span> คน
                 </td>
-                <td>
-                  <div className="flex gap-4 items-center justify-center">
+                <td className="flex space-x-2">
+                  <button
+                    className="btn btn-warning btn-outline"
+                    onClick={() =>
+                      document.getElementById("edit_class").showModal()
+                    }
+                  >
                     <BiSolidEdit />
+                  </button>
+                  <button className="btn btn-error btn-outline">
                     <AiOutlineDelete />
-                  </div>
+                  </button>
                 </td>
+                <ModalEditClass />
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
