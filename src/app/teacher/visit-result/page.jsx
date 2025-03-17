@@ -59,10 +59,10 @@ const page = () => {
             onChange={(e) => setHomepic(e.target.files[0])}
           />
          <fieldset className="fieldset my-6">
-          <legend className="fieldset-legend">ชั้นเรียน :</legend>
+          <legend className="fieldset-legend">คำอธิบายภาพ :</legend>
           <input
             type="text"
-            className="input w-64 md:w-92"
+            className="input w-92"
             placeholder="ชั้นเรียน"
           />
         </fieldset>
@@ -101,10 +101,10 @@ const page = () => {
             onChange={(e) => setFamilypic(e.target.files[0])}
           />
           <fieldset className="fieldset my-6">
-          <legend className="fieldset-legend">ชั้นเรียน :</legend>
+          <legend className="fieldset-legend">คำอธิบายภาพ :</legend>
           <input
             type="text"
-            className="input w-64 md:w-92"
+            className="input w-92"
             placeholder="ชั้นเรียน"
           />
         </fieldset>
@@ -112,11 +112,11 @@ const page = () => {
       </div>
 
 
-      <div className="flex items-center justify-between w-8/12 mx-auto">
+      <div className="md:flex w-8/12 mx-auto">
         <fieldset className="fieldset">
-          <legend className="fieldset-legend">ชั้นเรียน :</legend>
+          <legend className="fieldset-legend">ความคิดเห็นของอาจารย์ :</legend>
           <textarea
-            className="textarea textarea-lg w-64 md:w-128"
+            className="textarea textarea-lg w-98 md:w-128"
             placeholder="ชั้นเรียน"
           />
         </fieldset>

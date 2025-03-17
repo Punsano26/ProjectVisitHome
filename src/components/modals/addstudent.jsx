@@ -41,25 +41,12 @@ const addstudent = () => {
               />
             </fieldset>
             <fieldset className="fieldset">
-              <legend className="fieldset-legend">รหัสผ่าน :</legend>
+              <legend className="fieldset-legend">อีเมล :</legend>
               <input
-                type="password"
-                className="input w-64 md:w-72 validator"
-                required
-                placeholder="Password"
-                minLength="8"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                title="ต้องมากกว่า 8 ตัวอักษร รวมถึงตัวเลข ตัวอักษรพิมพ์เล็ก ตัวอักษรพิมพ์ใหญ่"
+                type="email"
+                className="input w-64 md:w-72"
+                placeholder="Type here"
               />
-              <p className="validator-hint">
-                จะต้องมากกว่า 8 ตัวอักษร รวมถึง
-                <br />
-                อย่างน้อยหนึ่งหมายเลข
-                <br />
-                อย่างน้อยต้องมีตัวอักษรพิมพ์เล็กหนึ่งตัว
-                <br />
-                อย่างน้อยต้องมีตัวอักษรพิมพ์ใหญ่หนึ่งตัว
-              </p>
             </fieldset>
           </div>
 
