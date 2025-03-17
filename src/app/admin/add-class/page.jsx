@@ -79,7 +79,7 @@ const page = () => {
           </div>
         </div>
         <ModalAddClass />
-
+        <ModalEditClass />
         {/* ตารางชั้นเรียน */}
 
         <div className="overflow-x-auto">
@@ -99,32 +99,32 @@ const page = () => {
             </thead>
             <tbody>
               {/* row 1 */}
-              <tr>
-                <th>
-                  <label>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
-                </th>
-                <td className="text-center">ม.4/1</td>
-                <td className="text-center">
-                  <span>32</span> คน
-                </td>
-                <td className="flex space-x-2">
-                  <button
-                    className="btn btn-warning btn-outline"
-                    onClick={() =>
-                      document.getElementById("edit_class").showModal()
-                    }
-                  >
-                    <BiSolidEdit />
-                  </button>
-                  <button className="btn btn-error btn-outline">
-                    <AiOutlineDelete />
-                  </button>
-                </td>
-                <ModalEditClass />
-              </tr>
+                <tr>
+                  <th>
+                    <label>
+                      <input type="checkbox" className="checkbox" />
+                    </label>
+                  </th>
+                  <td className="text-center">ม.5/1</td>
+                  <td className="text-center">
+                    <span>32</span> คน
+                  </td>
+                  <td className="flex space-x-2 justify-center">
+                    <button
+                      className="btn btn-warning btn-outline"
+                      onClick={() =>
+                        document.getElementById("edit_class").showModal()
+                      }
+                    >
+                      <BiSolidEdit />
+                    </button>
+                    <button className="btn btn-error btn-outline">
+                      <AiOutlineDelete />
+                    </button>
+                  </td>
+                </tr>
             </tbody>
+              
           </table>
         </div>
       </div>
