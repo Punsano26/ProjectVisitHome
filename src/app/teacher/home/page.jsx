@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-
+import ModalManageVisitor from "@componentsmodals/manageVisitor";
 const page = () => {
   const [students, setStudents] = useState([]);
   useEffect(() => {
@@ -54,8 +54,10 @@ const page = () => {
           </label>
         </div>
       </div>
-      <div className="items-center flex justify-center mb-4 md:justify-start md:ml-4 "><button className="btn btn-success">พิมพ์รายชื่อนักเรียน</button></div>
-      
+      <div className="items-center flex justify-center mb-4 md:justify-start md:ml-4 ">
+        <button className="btn btn-success">พิมพ์รายชื่อนักเรียน</button>
+      </div>
+
       {/* ตารางแสดงรายชื่อนักเรียนขอห้องนี้ */}
       <div className="overflow-x-auto">
         <table className="table">
@@ -77,34 +79,14 @@ const page = () => {
           </thead>
           <tbody>
             {/* row 1 */}
-            {/* <tr>
-              <th>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
-              </th>
-              <td className="text-center">0</td>
-              <td className="text-center">
-                <span>43453</span>
-              </td>
-              <td className="">
-                <span>นาย</span>
-              </td>
-              <td>
-                <span>พันแสน</span>
-              </td>
-              <td>
-                <span>สมกล้า</span>
-              </td>
-
-              <td className="text-center">
-              <span className="inline-flex items-center rounded-md bg-emerald-300 px-2 py-1 text-xs font-medium text-green-800 ring-1 ring-green-600/20 ring-inset">
-                  เยี่ยมแล้ว
-                </span>
-              </td>
-            </tr> */}
             {students.map((student, index) => (
-              <tr key={index}>
+              <tr
+                key={index}
+                className="hover:bg-amber-100 cursor-pointer"
+                onClick={() =>
+                  document.getElementById(student.firstname, student.lastname).showModal()
+                }
+              >
                 <th>
                   <label>
                     <input type="checkbox" className="checkbox" />
@@ -127,7 +109,6 @@ const page = () => {
                 {/* ใช้ Ternary Operator */}
                 <td className="text-center">
                   {student.status_visit !== "เยี่ยมแล้ว" ? (
-                    
                     <span className="badge badge-soft badge-error">
                       {student.status_visit}
                     </span>
@@ -137,6 +118,8 @@ const page = () => {
                     </span>
                   )}
                 </td>
+                {/* Modal จัดการข้อมูลนักเรียน */}
+                <ModalManageVisitor name={student.firstname} lastname={student.lastname} />
               </tr>
             ))}
           </tbody>
