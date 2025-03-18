@@ -25,7 +25,7 @@ const page = () => {
     setClasses(classesMockup);
   }, []);
   return (
-    <div className="h-[71.5vh]">
+    <div className="min-h-screen flex flex-col">
       <div className="p-2">
         <h5 className="text-center font-bold">
           เพิ่มชั้นเรียนของปีการศึกษา<span>2565</span>
