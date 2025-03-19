@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { MdUpload } from "react-icons/md";
 import React from "react";
+import AddPicture from "@componentsAddPicture";
 
 const page = () => {
   const [homepic, setHomepic] = useState(null);
@@ -26,98 +26,42 @@ const page = () => {
         {/* ส่วนปุ่มเพิ่มรูปภาพบ้านกับรูปภาพนักเรียน */}
         <div className="flex flex-col justify-center items-center mt-4">
           <h3>รูปถ่ายสภาพบ้าน</h3>
-          <div
-            className={`btn btn-ghost flex flex-col py-30 px-28 border-1 rounded-md border-[#EFEFEF]`}
+          <AddPicture
+            set={setHomepic}
+            get={homepic}
             onClick={handleAddHome}
-          >
-            {homepic ? (
-              <>
-                <img
-                  src={URL.createObjectURL(homepic)}
-                  className="w-30 h-28 rounded-md object-cover"
-                  alt=""
-                />
-              </>
-            ) : (
-              <>
-                <div>
-                  <MdUpload className="size-16 text-[#A0A0A0]" />
-                </div>
-                <p className="text-[#A0A0A0]">เพิ่มรูปภาพนักเรียนที่นี่</p>
-                <p className="text-[#A0A0A0]">JPG, PNG (Max 5MB)</p>
-              </>
-            )}
-
-          </div>
-
-          {/* Hidden file input with a unique ID */}
-          <input
-            className="hidden"
-            type="file"
-            id="addhomepic"
-            accept="image/jpeg, image/png"
-            onChange={(e) => setHomepic(e.target.files[0])}
+            id={"addhomepic"}
           />
-         <fieldset className="fieldset my-6">
-          <legend className="fieldset-legend">คำอธิบายภาพ :</legend>
-          <input
-            type="text"
-            className="input w-92"
-            placeholder="ชั้นเรียน"
-          />
-        </fieldset>
+          <fieldset className="fieldset my-6">
+            <legend className="fieldset-legend">คำอธิบายภาพ :</legend>
+            <input
+              type="text"
+              className="input w-92"
+              placeholder="กรอกคำอธิบายภาพ"
+            />
+          </fieldset>
         </div>
         <div className="flex flex-col justify-center items-center mt-4">
           <h3>รูปถ่ายกับครอบครัว</h3>
-          <div
-            className={`btn btn-ghost flex flex-col py-30 px-28 border-1 rounded-md border-[#EFEFEF]`}
+          <AddPicture
+            set={setFamilypic}
+            get={familypic}
             onClick={handleAddFamily}
-          >
-            {familypic ? (
-              <>
-                <img
-                  src={URL.createObjectURL(familypic)}
-                  className="w-30 h-28 rounded-md object-cover"
-                  alt=""
-                />
-              </>
-            ) : (
-              <>
-                <div>
-                  <MdUpload className="size-16 text-[#A0A0A0]" />
-                </div>
-                <p className="text-[#A0A0A0]">เพิ่มรูปภาพนักเรียนที่นี่</p>
-                <p className="text-[#A0A0A0]">JPG, PNG (Max 5MB)</p>
-              </>
-            )}
-          </div>
-
-          {/* Hidden file input with a unique ID */}
-          <input
-            className="hidden"
-            type="file"
-            id="addfamilypic"
-            accept="image/jpeg, image/png"
-            onChange={(e) => setFamilypic(e.target.files[0])}
+            id={"addfamilypic"}
           />
           <fieldset className="fieldset my-6">
-          <legend className="fieldset-legend">คำอธิบายภาพ :</legend>
-          <input
-            type="text"
-            className="input w-92"
-            placeholder="ชั้นเรียน"
-          />
-        </fieldset>
+            <legend className="fieldset-legend">คำอธิบายภาพ :</legend>
+            <input type="text" className="input w-92" placeholder="ชั้นเรียน" />
+          </fieldset>
         </div>
       </div>
-
 
       <div className="md:flex w-8/12 mx-auto">
         <fieldset className="fieldset">
           <legend className="fieldset-legend">ความคิดเห็นของอาจารย์ :</legend>
           <textarea
             className="textarea textarea-lg w-98 md:w-128"
-            placeholder="ชั้นเรียน"
+            placeholder="กรอกคำอธิบายภาพ"
           />
         </fieldset>
       </div>
