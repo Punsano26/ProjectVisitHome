@@ -25,7 +25,7 @@ const page = () => {
     setClasses(classesMockup);
   }, []);
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col section-container">
       <div className="p-2">
         <h5 className="text-center font-bold">
           เพิ่มชั้นเรียนของปีการศึกษา<span>2565</span>
@@ -90,7 +90,7 @@ const page = () => {
             </label>
             <button
               onClick={() => document.getElementById("add_class").showModal()}
-              className="btn btn-success"
+              className="btn-scc"
             >
               เพิ่มชั้นเรียน
             </button>

@@ -6,9 +6,9 @@ import ModalAddStudent from '@components/modals/addstudent';
 
 const page = () => {
   return (
-    <div className='p-2 h-screen'>
+    <div className='p-2 h-screen section-container'>
          <h5 className="text-center font-bold">
-          มัธยมศึกษาปีที่<span>5/1</span>
+          มัธยมศึกษาปีที่<span className='text-green_light'>5/1</span>
         </h5>
          {/* ฟีเจอร์เสริม */}
          <div className="flex items-center justify-between m-2 mt-4 mb-4">
@@ -61,7 +61,7 @@ const page = () => {
         <h6>ข้อมูลติดต่อ :<span></span></h6></div>
        
        {/* ตารางแสดงรายชื่อนักเรียนขอห้องนี้ */}
-       <div className="overflow-x-auto">
+       <div className="overflow-x-auto ">
                  <table className="table">
                    {/* head */}
                    <thead>
