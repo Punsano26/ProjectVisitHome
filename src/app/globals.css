@@ -14,7 +14,8 @@
   --color-red_hover: #fca5a5;
   --color-yellow: #fcbf49;
   --color-yellow_hover: #fde047;
-
+  --color-darkbule: #4338ca;
+  --color-darkbule_hover: #4f46e5;
   /* Font Sizes */
   --font-size-xs: 0.75rem;
   --font-size-sm: 1rem;
@@ -52,7 +53,9 @@
   @apply text-base w-[170px] h-[48px] rounded-[8px] bg-neutral_content text-back hover:bg-neutral_content_hover;
 }
 
-
+.btn-login {
+  @apply text-base w-[170px] h-[48px] rounded-[8px] bg-darkbule text-white  hover:bg-darkbule_hover;
+}
 .subtitle {
   @apply text-red-500 uppercase tracking-wide font-semibold text-lg;
 }

@@ -1,12 +1,39 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BiSolidEdit } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
+import UserService from "services/user.service";
 import addpersonnel from "@components/modals/addpersonnel";
-
-
+import api from "services/api";
 
 const page = () => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    console.log(api);
+
+    api
+      .get("https://visit-home.onrender.com/api/v1/users")
+      .then((res) => {
+        setUsers(res.data.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  const showStatus = (status) => {
+    switch (status) {
+      case "รับราชกาล":
+        return <div className="badge badge-dash badge-success">รับราชกาล</div>;
+      case "ลาออก":
+        return <h1>Good Afternoon!</h1>;
+      default:
+        return <h1>Hello!</h1>;
+    }
+  };
+
   return (
     <div className="p-2">
       <h5 className="text-center font-bold">รายชื่อบุคลากร</h5>
@@ -61,8 +88,6 @@ const page = () => {
       </div>
       {/* Modal เพิ่มบุคลากร */}
       <addpersonnel />
-
-
       {/* ตารางแสดงรายชื่อนักเรียนขอห้องนี้ */}
       <div className="overflow-x-auto">
         <table className="table">
@@ -86,77 +111,47 @@ const page = () => {
           </thead>
           <tbody>
             {/* row 1 */}
-            <tr>
-              <th>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
-              </th>
-              <td className="text-center">74837495</td>
-              <td className="text-center">
-                <span>นาย</span>
-              </td>
-              <td>
-                <span>อาทิชล</span>
-              </td>
-              <td>
-                <span>บุญน้อย</span>
-              </td>
-              <td>
-                <span>ครูที่ปรึกษา</span>
-              </td>
-              <td>
-                <span>0987654321</span>
-              </td>
-              <td>
-                <span className="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-yellow-600/20 ring-inset">
-                  ลาออก
-                </span>
-              </td>
+            {users.map((user, index) => (
+              <tr key={index}>
+                <th>
+                  <label>
+                    <input type="checkbox" className="checkbox" />
+                  </label>
+                </th>
+                <td className="text-center">74837495</td>
+                <td className="text-center">
+                  <span>{user.prefix}</span>
+                </td>
+                <td>
+                  <span>{user.first_name}</span>
+                </td>
+                <td>
+                  <span>{user.last_name}</span>
+                </td>
+                <td>
+                  {user.role.includes("Admin") ? (
+                    <span>เจ้าหน้าที่</span>
+                  ) : (
+                    <span>ครูที่ปรึกษา</span>
+                  )}
+                </td>
+                <td>
+                  <span>0987654321</span>
+                </td>
+                <td>
+                  <span className="">
+                    {showStatus(user.status)}
+                  </span>
+                </td>
 
-              <td>
-                <div className="flex gap-4 items-center justify-center">
-                  <BiSolidEdit />
-                  <AiOutlineDelete />
-                </div>
-              </td>
-            </tr>
-            {/* row 2 */}
-            <tr>
-              <th>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
-              </th>
-              <td className="text-center">85960483</td>
-              <td className="text-center">
-                <span>นาย</span>
-              </td>
-              <td>
-                <span>ชลน่าน</span>
-              </td>
-              <td>
-                <span>ศรีฤทธิ์</span>
-              </td>
-              <td>
-                <span>ฝ่ายทะเบียน</span>
-              </td>
-              <td>
-                <span>0948372645</span>
-              </td>
-              <td>
-                <span className="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-red-600/10 ring-inset">
-                  เกษียร
-                </span>
-              </td>
-
-              <td>
-                <div className="flex gap-4 items-center justify-center">
-                  <BiSolidEdit />
-                  <AiOutlineDelete />
-                </div>
-              </td>
-            </tr>
+                <td>
+                  <div className="flex gap-4 items-center justify-center">
+                    <BiSolidEdit />
+                    <AiOutlineDelete />
+                  </div>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
