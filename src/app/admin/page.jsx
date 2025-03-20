@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation"; // ใช้เพื่อเปลี่ยนหน้า
 import { FaPlus } from "react-icons/fa6";
-import ModalAddYear from "../../../components/modals/addyear";
+import ModalAddYear from "../../components/modals/addyear";
 
 const Page = () => {
   const [years, setYears] = useState([]);
