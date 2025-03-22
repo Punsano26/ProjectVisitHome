@@ -2,10 +2,9 @@ import api from "./api";
 const API_URL = "/users";
 
 const getUsers = async () => {
-    const response = await api.get(API_URL+"/");
-    console.log(await api.get(API_URL));
+  console.log(api);
 
-  return response;
+  return await api.get(`${API_URL}`);
 };
 
 const UserService = {

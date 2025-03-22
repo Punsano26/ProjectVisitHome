@@ -10,18 +10,18 @@ const page = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    console.log(api);
+    try {
+      UserService.getUsers().then((res) => {
+        console.log(res);
 
-    api
-      .get("https://visit-home.onrender.com/api/v1/users")
-      .then((res) => {
         setUsers(res.data.data);
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
       });
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
+
+  console.log(users);
 
   const showStatus = (status) => {
     switch (status) {
@@ -139,9 +139,7 @@ const page = () => {
                   <span>0987654321</span>
                 </td>
                 <td>
-                  <span className="">
-                    {showStatus(user.status)}
-                  </span>
+                  <span className="">{showStatus(user.status)}</span>
                 </td>
 
                 <td>
