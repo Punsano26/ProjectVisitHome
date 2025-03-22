@@ -1,7 +1,7 @@
 "use client";
 import { useContext } from "react";
 import { AuthContext } from "contexts/auth.context";
-
+import TestSignbtn from "@componentsTestSignbtn";
 const Navbar = () => {
   const { GoogleLogin, user, logout } = useContext(AuthContext);
   console.log(user);
@@ -82,14 +82,17 @@ const Navbar = () => {
           </ul> */}
         </div>
         <div className="navbar-end">
+       
           {user ? (
             <button onClick={logout} className="btn btn-danger">
               ลงชื่อออกจากระบบ
             </button>
+            
           ) : (
             <button onClick={GoogleLogin} className="btn btn-login">
               เข้าสู่ระบบ
-            </button>
+            </button>,
+            <TestSignbtn />
           )}
         </div>
       </div>

@@ -12,7 +12,7 @@ const page = () => {
       UserService.getUsers().then((res) => {
         console.log(res);
 
-        setUsers(res.data?.data);
+        setUsers(res.data?.users);
       });
     } catch (error) {
       console.log(error);
@@ -20,9 +20,10 @@ const page = () => {
   }, []);
 
   useEffect(() => {
+    //เช็คไปก่อน ถ้ายังไม่มีข้อมูล ก็ไม่ต้องทำอะไร เช็คๆไปเหอะ
     if(users.length > 0) {
       const newformattedPerson = users.map((user) => ({
-        "เลขที่ประจำตัวบุคลากร": user.id,
+        "เลขที่ประจำตัวบุคลากร": user.user_id,
         "คำนำหน้า": user.prefix,
         "ชื่อ": user.first_name,
         "นามสกุล": user.last_name,
