@@ -7,7 +7,7 @@ import PersonTable from "@components/table/PersonTable";
 
 const page = () => {
   const [users, setUsers] = useState([]);
-
+  const [formattedPerson, setForamtttedPerson] = useState([])
   useEffect(() => {
     try {
       UserService.getUsers().then((res) => {
@@ -20,6 +20,21 @@ const page = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if(users.length > 0) {
+      const newformattedPerson = users.map((user) => ({
+        "เลขที่ประจำตัวบุคลากร": user.id,
+        "คำนำหน้า": user.prefix,
+        "ชื่อ": user.first_name,
+        "นามสกุล": user.last_name,
+        "ตำแหน่ง": user.role?.includes("Admin") ? "เจ้าหน้าที่" : "ครูที่ปรึกษา",
+        "ติดต่อ": user.phone || "ยังไม่มีเบอร์โทรศัพท์", // เผื่อ API ไม่มีข้อมูล
+        "สถานะ": showStatus(user.status),
+      }));
+      setForamtttedPerson(newformattedPerson);
+    }
+  } , [users])
+  
   console.log(users);
 
   const showStatus = (status) => {
@@ -35,15 +50,7 @@ const page = () => {
 
   const columns = ["เลขที่ประจำตัวบุคลากร", "คำนำหน้า", "ชื่อ", "นามสกุล", "ตำแหน่ง", "ติดต่อ", "สถานะ"];
 
-  const formattedPerson = users.map((user) => ({
-    "เลขที่ประจำตัวบุคลากร": user.id,
-    "คำนำหน้า": user.prefix,
-    "ชื่อ": user.first_name,
-    "นามสกุล": user.last_name,
-    "ตำแหน่ง": user.role?.includes("Admin") ? "เจ้าหน้าที่" : "ครูที่ปรึกษา",
-    "ติดต่อ": user.phone || "ยังไม่มีเบอร์โทรศัพท์", // เผื่อ API ไม่มีข้อมูล
-    "สถานะ": showStatus(user.status),
-  }));
+  
 
   return (
     <div className="p-2">
