@@ -101,7 +101,72 @@ const page = () => {
       <ModalAddpersonnel />
       {/* ตารางแสดงรายชื่อบุคลากรในโรงเรียน*/}
       <div className="overflow-x-auto">
+<<<<<<< HEAD
         <PersonTable columns={columns} data={formattedPerson} />
+=======
+        <table className="table">
+          {/* head */}
+          <thead>
+            <tr>
+              <th>
+                <label>
+                  <input type="checkbox" className="checkbox" />
+                </label>
+              </th>
+              <th className="text-center">เลขที่ประจำตัวบุคลากร</th>
+              <th className="text-center">คำนำหน้า</th>
+              <th>ชื่อ</th>
+              <th>นามสกุล</th>
+              <th>ตำแหน่ง</th>
+              <th>ติดต่อ</th>
+              <th>สถานะ</th>
+              <th className="text-center">แก้ไข/ลบ</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* row 1 */}
+            {users.map((user, index) => (
+              <tr key={index}>
+                <th>
+                  <label>
+                    <input type="checkbox" className="checkbox" />
+                  </label>
+                </th>
+                <td className="text-center">74837495</td>
+                <td className="text-center">
+                  <span>{user.prefix}</span>
+                </td>
+                <td>
+                  <span>{user.first_name}</span>
+                </td>
+                <td>
+                  <span>{user.last_name}</span>
+                </td>
+                <td>
+                  {user.role.includes("Admin") ? (
+                    <span>เจ้าหน้าที่</span>
+                  ) : (
+                    <span>ครูที่ปรึกษา</span>
+                  )}
+                </td>
+                <td>
+                  <span>0987654321</span>
+                </td>
+                <td>
+                  <span className="">{showStatus(user.status)}</span>
+                </td>
+
+                <td>
+                  <div className="flex gap-4 items-center justify-center">
+                    <BiSolidEdit />
+                    <AiOutlineDelete />
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+>>>>>>> 962e8a4072208dfd3e3d227edfad987d60a383fb
       </div>
     </div>
   );

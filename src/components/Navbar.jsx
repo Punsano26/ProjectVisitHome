@@ -1,6 +1,9 @@
-import React from "react";
+"use client";
+import { useContext } from "react";
+import { AuthContext } from "contexts/auth.context";
 
 const Navbar = () => {
+  const { GoogleLogin } = useContext(AuthContext);
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm">
@@ -77,7 +80,9 @@ const Navbar = () => {
           </ul> */}
         </div>
         <div className="navbar-end">
-          <a className="btn">เข้าสู่ระบบ</a>
+          <button onClick={GoogleLogin} className="btn btn-login">
+            เข้าสู่ระบบ
+          </button>
         </div>
       </div>
     </div>
