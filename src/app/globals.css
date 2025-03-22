@@ -67,3 +67,31 @@
   text-underline-offset: 5px;
   color: rgb(56, 163, 56);
 }
+
+.h1 {
+  @apply text-[3.5rem];
+}
+
+.h2 {
+  @apply text-[3rem];
+}
+
+.h3 {
+  @apply text-[2rem];
+}
+
+.h4 {
+  @apply text-[1.5rem];
+}
+
+.h5 {
+  @apply text-[1.25rem];
+}
+
+.h6 {
+  @apply text-[1rem];
+}
+
+.base-body {
+  @apply text-[14px];
+}
