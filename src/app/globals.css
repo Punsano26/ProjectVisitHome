@@ -5,7 +5,7 @@
 @theme {
   --color-green_light: #a5dc86;
   --color-neutral_content: #f9fafb;
-  --color-neutral_content_hover:#f3f4f6;
+  --color-neutral_content_hover: #f3f4f6;
   --color-back: #000000;
   --color-white: #ffffff;
   --color-emerald_hover: #6ee7b7;
@@ -20,9 +20,9 @@
   --font-size-xs: 0.75rem;
   --font-size-sm: 1rem;
   /* ขนาดอักษรพื้นฐาน */
-  --font-size-base: 1.25rem; 
+  --font-size-base: 1.25rem;
   /* หัวข้อ */
-  --font-size-lg: 2rem; 
+  --font-size-lg: 2rem;
   --font-size-xl: 3rem;
   --font-size-2xl: 3.5rem;
 }
@@ -48,7 +48,7 @@
 }
 
 .btn-danger {
-  @apply text-base w-[170px] h-[48px] rounded-[8px] bg-red text-back hover:bg-red_hover;
+  @apply text-base px-10 h-[48px] rounded-[8px] bg-red text-back hover:bg-red_hover;
 }
 
 .btn-prev-next {
@@ -66,4 +66,32 @@
   text-decoration: underline;
   text-underline-offset: 5px;
   color: rgb(56, 163, 56);
+}
+
+.h1 {
+  @apply text-[3.5rem];
+}
+
+.h2 {
+  @apply text-[3rem];
+}
+
+.h3 {
+  @apply text-[2rem];
+}
+
+.h4 {
+  @apply text-[1.5rem];
+}
+
+.h5 {
+  @apply text-[1.25rem];
+}
+
+.h6 {
+  @apply text-[1rem];
+}
+
+.base-body {
+  @apply text-[14px];
 }

@@ -2,10 +2,11 @@
 import { useState, useEffect } from "react";
 import { BiSolidEdit } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
-import ModalAddClass from "../../../components/modals/addclass";
+import ModalAddClass from "@components/modals/addclass";
 import ModalEditClass from "@componentsmodals/editClass";
 
-const page = () => {
+const page = ({ params }) => {
+  const { year } = params;
   const [classes, setClasses] = useState([]);
   const classesMockup = [
     { id: 1, grade: 1, room: 1, students: 32, teacher: "ครูณัฐวุฒิ" },
@@ -28,7 +29,7 @@ const page = () => {
     <div className="flex flex-col section-container">
       <div className="p-2">
         <h5 className="text-center font-bold">
-          เพิ่มชั้นเรียนของปีการศึกษา<span>2565</span>
+          เพิ่มชั้นเรียนของปีการศึกษา <span>{year}</span>
         </h5>
         <div className="flex justify-center items-center mt-4">
           {/* การ์ดกำหนดช่วงนัดการเยี่ยมบ้านนักเรียน */}
@@ -145,7 +146,6 @@ const page = () => {
                           <AiOutlineDelete />
                         </button>
                       </td>
-                     
                     </tr>
                   );
                 })}

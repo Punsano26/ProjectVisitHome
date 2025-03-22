@@ -4,7 +4,6 @@ import UserService from "services/user.service";
 import ModalAddpersonnel from "@components/modals/addpersonnel";
 import PersonTable from "@components/table/PersonTable";
 
-
 const page = () => {
   const [users, setUsers] = useState([]);
   const [formattedPerson, setForamtttedPerson] = useState([])
@@ -48,9 +47,17 @@ const page = () => {
     }
   };
 
-  const columns = ["เลขที่ประจำตัวบุคลากร", "คำนำหน้า", "ชื่อ", "นามสกุล", "ตำแหน่ง", "ติดต่อ", "สถานะ"];
+  const columns = [
+    "เลขที่ประจำตัวบุคลากร",
+    "คำนำหน้า",
+    "ชื่อ",
+    "นามสกุล",
+    "ตำแหน่ง",
+    "ติดต่อ",
+    "สถานะ",
+  ];
 
-  
+
 
   return (
     <div className="p-2">
@@ -96,21 +103,22 @@ const page = () => {
             </svg>
             <input type="search" required placeholder="กรอกรายชื่อบุคลากร" />
           </label>
-          <button
-            onClick={() => document.getElementById("add_personnel").showModal()}
-            className="btn btn-success"
-          >
-            เพิ่มบุคลากร
-          </button>
         </div>
+      </div>
+      <div className="flex justify-end">
+        {" "}
+        <button
+          onClick={() => document.getElementById("add_personnel").showModal()}
+          className="btn btn-success"
+        >
+          เพิ่มบุคลากร
+        </button>
       </div>
       {/* Modal เพิ่มบุคลากร */}
       <ModalAddpersonnel />
       {/* ตารางแสดงรายชื่อบุคลากรในโรงเรียน*/}
       <div className="overflow-x-auto">
-
         <PersonTable columns={columns} data={formattedPerson} />
-
       </div>
     </div>
   );

@@ -3,7 +3,9 @@ import { useContext } from "react";
 import { AuthContext } from "contexts/auth.context";
 
 const Navbar = () => {
-  const { GoogleLogin } = useContext(AuthContext);
+  const { GoogleLogin, user, logout } = useContext(AuthContext);
+  console.log(user);
+
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm">
@@ -80,9 +82,15 @@ const Navbar = () => {
           </ul> */}
         </div>
         <div className="navbar-end">
-          <button onClick={GoogleLogin} className="btn btn-login">
-            เข้าสู่ระบบ
-          </button>
+          {user ? (
+            <button onClick={logout} className="btn btn-danger">
+              ลงชื่อออกจากระบบ
+            </button>
+          ) : (
+            <button onClick={GoogleLogin} className="btn btn-login">
+              เข้าสู่ระบบ
+            </button>
+          )}
         </div>
       </div>
     </div>

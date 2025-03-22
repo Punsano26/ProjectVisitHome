@@ -4,12 +4,12 @@ import { AiOutlineDelete } from "react-icons/ai";
 const TableBody = ({ data, columns }) => {
   return (
     <tbody>
-      {data.map((item, index) => (
+      {data?.map((item, index) => (
         <tr key={index}>
           <td>
             <input type="checkbox" className="checkbox" />
           </td>
-          {columns.map((column, idex) => (
+          {columns?.map((column, idex) => (
             <td key={idex} className="text-center">{item[column]}</td>
           ))}
           <td className="flex gap-4 items-center justify-center">
