@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import UserService from "services/user.service";
 import ModalAddpersonnel from "@components/modals/addpersonnel";
 import PersonTable from "@components/table/PersonTable";
-import api from "services/api";
+
 
 const page = () => {
   const [users, setUsers] = useState([]);
@@ -13,7 +13,7 @@ const page = () => {
       UserService.getUsers().then((res) => {
         console.log(res);
 
-        setUsers(res.data.data);
+        setUsers(res.data?.data);
       });
     } catch (error) {
       console.log(error);
@@ -40,7 +40,7 @@ const page = () => {
     "คำนำหน้า": user.prefix,
     "ชื่อ": user.first_name,
     "นามสกุล": user.last_name,
-    "ตำแหน่ง": user.role.includes("Admin") ? "เจ้าหน้าที่" : "ครูที่ปรึกษา",
+    "ตำแหน่ง": user.role?.includes("Admin") ? "เจ้าหน้าที่" : "ครูที่ปรึกษา",
     "ติดต่อ": user.phone || "ยังไม่มีเบอร์โทรศัพท์", // เผื่อ API ไม่มีข้อมูล
     "สถานะ": showStatus(user.status),
   }));
@@ -101,72 +101,9 @@ const page = () => {
       <ModalAddpersonnel />
       {/* ตารางแสดงรายชื่อบุคลากรในโรงเรียน*/}
       <div className="overflow-x-auto">
-<<<<<<< HEAD
-        <PersonTable columns={columns} data={formattedPerson} />
-=======
-        <table className="table">
-          {/* head */}
-          <thead>
-            <tr>
-              <th>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
-              </th>
-              <th className="text-center">เลขที่ประจำตัวบุคลากร</th>
-              <th className="text-center">คำนำหน้า</th>
-              <th>ชื่อ</th>
-              <th>นามสกุล</th>
-              <th>ตำแหน่ง</th>
-              <th>ติดต่อ</th>
-              <th>สถานะ</th>
-              <th className="text-center">แก้ไข/ลบ</th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* row 1 */}
-            {users.map((user, index) => (
-              <tr key={index}>
-                <th>
-                  <label>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
-                </th>
-                <td className="text-center">74837495</td>
-                <td className="text-center">
-                  <span>{user.prefix}</span>
-                </td>
-                <td>
-                  <span>{user.first_name}</span>
-                </td>
-                <td>
-                  <span>{user.last_name}</span>
-                </td>
-                <td>
-                  {user.role.includes("Admin") ? (
-                    <span>เจ้าหน้าที่</span>
-                  ) : (
-                    <span>ครูที่ปรึกษา</span>
-                  )}
-                </td>
-                <td>
-                  <span>0987654321</span>
-                </td>
-                <td>
-                  <span className="">{showStatus(user.status)}</span>
-                </td>
 
-                <td>
-                  <div className="flex gap-4 items-center justify-center">
-                    <BiSolidEdit />
-                    <AiOutlineDelete />
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
->>>>>>> 962e8a4072208dfd3e3d227edfad987d60a383fb
+        <PersonTable columns={columns} data={formattedPerson} />
+
       </div>
     </div>
   );
