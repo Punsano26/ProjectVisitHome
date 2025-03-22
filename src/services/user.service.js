@@ -1,14 +1,16 @@
 import api from "./api";
-const API_URL = "/users";
 
 const getUsers = async () => {
-  console.log(api);
+  return await api.get(`/users`);
+};
 
-  return await api.get(`${API_URL}`);
+const login = async (data) => {
+  return await api.post(`/sign`, data);
 };
 
 const UserService = {
   getUsers,
+  login,
 };
 
 export default UserService;

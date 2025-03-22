@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import AuthProvider from "contexts/auth.context";
 
 export const metadata = {
   title: "ระบบบันทึกการเยี่ยมบ้านโรงเรียนบางแพปฐมพิทยา",
@@ -10,11 +11,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
-        <Navbar />
-        <div className="min-h-screen">{children}</div>
-        <Footer />
-      </body>
+      <AuthProvider>
+        <body>
+          <Navbar />
+          <div className="min-h-screen">{children}</div>
+          <Footer />
+        </body>
+      </AuthProvider>
     </html>
   );
 }
