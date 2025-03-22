@@ -25,15 +25,16 @@ const AuthProvider = ({ children }) => {
 
   const GoogleLogin = () => {
     const provider = new GoogleAuthProvider();
-    provider.setCustomParameters({ hd: "bangpaeschool.ac.th" });
-    return signInWithPopup(auth, provider).then((result) => {
-      const email = result.user.email;
-      if (!email.endsWith("@bangpaeschool.ac.th")) {
-        auth.signOut();
-        throw new Error("กรุณาใช้บัญชี @bangpaeschool.ac.th ในการเข้าสู่ระบบ");
-      }
-      return result;
-    });
+    // provider.setCustomParameters({ hd: "bangpaeschool.ac.th" });
+    return signInWithPopup(auth, provider);
+    // .then((result) => {
+    //   const email = result.user.email;
+    //   if (!email.endsWith("@bangpaeschool.ac.th")) {
+    //     auth.signOut();
+    //     throw new Error("กรุณาใช้บัญชี @bangpaeschool.ac.th ในการเข้าสู่ระบบ");
+    //   }
+    //   return result;
+    // });
   };
 
   useEffect(() => {
@@ -43,11 +44,9 @@ const AuthProvider = ({ children }) => {
         setUser(currentUser);
         setIsLoggingIn(true);
         const { email } = currentUser;
-        await UserService.login({ email }).then((res) => {
-          if (res.data) {
-            console.log(res.data);
-          }
-        });
+        console.log("email", email);
+
+        await UserService.login({ email: "bp999@bangpaeschool.ac.th" });
       }
       setIsLoggingIn(true);
     });

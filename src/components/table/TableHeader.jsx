@@ -6,7 +6,7 @@ const TableHeader = ({ columns }) => {
           <th>
             <input type="checkbox" className="checkbox" />
           </th>
-          {columns.map((col, index) => (
+          {columns?.map((col, index) => (
             <th key={index} className="text-center">{col}</th>
           ))}
           <th className="text-center">แก้ไข/ลบ</th>
