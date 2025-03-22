@@ -63,4 +63,4 @@ const addpersonnel = () => {
       );
 }
 
-export default addpersonnel
+export default addpersonnel;

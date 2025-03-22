@@ -1,27 +1,26 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { BiSolidEdit } from "react-icons/bi";
-import { AiOutlineDelete } from "react-icons/ai";
 import UserService from "services/user.service";
-import addpersonnel from "@components/modals/addpersonnel";
+import ModalAddpersonnel from "@components/modals/addpersonnel";
+import PersonTable from "@components/table/PersonTable";
 import api from "services/api";
 
 const page = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    console.log(api);
+    try {
+      UserService.getUsers().then((res) => {
+        console.log(res);
 
-    api
-      .get("https://visit-home.onrender.com/api/v1/users")
-      .then((res) => {
         setUsers(res.data.data);
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
       });
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
+
+  console.log(users);
 
   const showStatus = (status) => {
     switch (status) {
@@ -33,6 +32,18 @@ const page = () => {
         return <h1>Hello!</h1>;
     }
   };
+
+  const columns = ["เลขที่ประจำตัวบุคลากร", "คำนำหน้า", "ชื่อ", "นามสกุล", "ตำแหน่ง", "ติดต่อ", "สถานะ"];
+
+  const formattedPerson = users.map((user) => ({
+    "เลขที่ประจำตัวบุคลากร": user.id,
+    "คำนำหน้า": user.prefix,
+    "ชื่อ": user.first_name,
+    "นามสกุล": user.last_name,
+    "ตำแหน่ง": user.role.includes("Admin") ? "เจ้าหน้าที่" : "ครูที่ปรึกษา",
+    "ติดต่อ": user.phone || "ยังไม่มีเบอร์โทรศัพท์", // เผื่อ API ไม่มีข้อมูล
+    "สถานะ": showStatus(user.status),
+  }));
 
   return (
     <div className="p-2">
@@ -87,73 +98,10 @@ const page = () => {
         </div>
       </div>
       {/* Modal เพิ่มบุคลากร */}
-      <addpersonnel />
-      {/* ตารางแสดงรายชื่อนักเรียนขอห้องนี้ */}
+      <ModalAddpersonnel />
+      {/* ตารางแสดงรายชื่อบุคลากรในโรงเรียน*/}
       <div className="overflow-x-auto">
-        <table className="table">
-          {/* head */}
-          <thead>
-            <tr>
-              <th>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
-              </th>
-              <th className="text-center">เลขที่ประจำตัวบุคลากร</th>
-              <th className="text-center">คำนำหน้า</th>
-              <th>ชื่อ</th>
-              <th>นามสกุล</th>
-              <th>ตำแหน่ง</th>
-              <th>ติดต่อ</th>
-              <th>สถานะ</th>
-              <th className="text-center">แก้ไข/ลบ</th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* row 1 */}
-            {users.map((user, index) => (
-              <tr key={index}>
-                <th>
-                  <label>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
-                </th>
-                <td className="text-center">74837495</td>
-                <td className="text-center">
-                  <span>{user.prefix}</span>
-                </td>
-                <td>
-                  <span>{user.first_name}</span>
-                </td>
-                <td>
-                  <span>{user.last_name}</span>
-                </td>
-                <td>
-                  {user.role.includes("Admin") ? (
-                    <span>เจ้าหน้าที่</span>
-                  ) : (
-                    <span>ครูที่ปรึกษา</span>
-                  )}
-                </td>
-                <td>
-                  <span>0987654321</span>
-                </td>
-                <td>
-                  <span className="">
-                    {showStatus(user.status)}
-                  </span>
-                </td>
-
-                <td>
-                  <div className="flex gap-4 items-center justify-center">
-                    <BiSolidEdit />
-                    <AiOutlineDelete />
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <PersonTable columns={columns} data={formattedPerson} />
       </div>
     </div>
   );

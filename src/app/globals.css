@@ -19,8 +19,10 @@
   /* Font Sizes */
   --font-size-xs: 0.75rem;
   --font-size-sm: 1rem;
-  --font-size-base: 1.25rem;
-  --font-size-lg: 2rem;
+  /* ขนาดอักษรพื้นฐาน */
+  --font-size-base: 1.25rem; 
+  /* หัวข้อ */
+  --font-size-lg: 2rem; 
   --font-size-xl: 3rem;
   --font-size-2xl: 3.5rem;
 }
