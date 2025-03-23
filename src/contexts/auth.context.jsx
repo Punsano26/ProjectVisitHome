@@ -46,7 +46,12 @@ const AuthProvider = ({ children }) => {
         const { email } = currentUser;
         console.log("email", email);
 
-        await UserService.login({ email: "bp999@bangpaeschool.ac.th" });
+        await UserService.login({ email: "bp999@bangpaeschool.ac.th" }).then(
+          (res) => {
+            const { user } = res.data;
+            setUser((userInfo) => ({ ...userInfo, user }));
+          }
+        );
       }
       setIsLoggingIn(true);
     });
