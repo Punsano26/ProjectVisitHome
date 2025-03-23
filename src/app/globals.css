@@ -95,3 +95,7 @@
 .base-body {
   @apply text-[14px];
 }
+
+.step-yellow {
+  @apply bg-[#FCBF49];
+}
