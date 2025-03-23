@@ -40,11 +40,11 @@
 }
 
 .btn-scc {
-  @apply text-base w-[170px] h-[48px] rounded-[8px] bg-emerald text-back hover:bg-emerald_hover;
+  @apply text-base px-10 h-[48px] rounded-[8px] bg-emerald text-back hover:bg-emerald_hover;
 }
 
 .btn-warn {
-  @apply text-base w-[170px] h-[48px] rounded-[8px] bg-yellow text-back hover:bg-yellow_hover;
+  @apply text-base px-10 h-[48px] rounded-[8px] bg-yellow text-back hover:bg-yellow_hover;
 }
 
 .btn-danger {
@@ -52,11 +52,11 @@
 }
 
 .btn-prev-next {
-  @apply text-base w-[170px] h-[48px] rounded-[8px] bg-neutral_content text-back hover:bg-neutral_content_hover;
+  @apply text-base px-10 h-[48px] rounded-[8px] bg-neutral_content text-back hover:bg-neutral_content_hover;
 }
 
 .btn-login {
-  @apply text-base w-[170px] h-[48px] rounded-[8px] bg-darkbule text-white  hover:bg-darkbule_hover;
+  @apply text-base px-10 h-[48px] rounded-[8px] bg-darkbule text-white  hover:bg-darkbule_hover;
 }
 .subtitle {
   @apply text-red-500 uppercase tracking-wide font-semibold text-lg;
