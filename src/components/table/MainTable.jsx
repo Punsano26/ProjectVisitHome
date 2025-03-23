@@ -1,7 +1,7 @@
 import TableHeader from "@components/table/TableHeader";
 import TableBody from "@components/table/TableBody";
 
-const PersonTable = ({ columns, data }) => {
+const MainTable = ({ columns, data }) => {
     return (
       <div className="overflow-x-auto">
         <table className="table">
@@ -12,5 +12,5 @@ const PersonTable = ({ columns, data }) => {
     );
   };
   
-  export default PersonTable;
+  export default MainTable;
   

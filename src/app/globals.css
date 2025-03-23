@@ -32,7 +32,7 @@
 }
 
 .section-container {
-  @apply max-w-screen-2xl container mx-auto xl:px-24 px-4;
+  @apply max-w-screen-2xl container mx-auto xl:px-24 px-4 mt-8;
 }
 
 .title {
@@ -56,7 +56,7 @@
 }
 
 .btn-login {
-  @apply text-base px-10 h-[48px] rounded-[8px] bg-darkbule text-white  hover:bg-darkbule_hover;
+  @apply text-base md:px-10 h-[48px] rounded-[8px] bg-darkbule text-white  hover:bg-darkbule_hover;
 }
 .subtitle {
   @apply text-red-500 uppercase tracking-wide font-semibold text-lg;

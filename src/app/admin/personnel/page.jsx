@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import UserService from "services/user.service";
 import ModalAddpersonnel from "@components/modals/addpersonnel";
-import PersonTable from "@components/table/PersonTable";
+import MainTable from "@componentstable/MainTable";
 
 const page = () => {
   const [users, setUsers] = useState([]);
@@ -119,7 +119,7 @@ const page = () => {
       <ModalAddpersonnel />
       {/* ตารางแสดงรายชื่อบุคลากรในโรงเรียน*/}
       <div className="overflow-x-auto">
-        <PersonTable columns={columns} data={formattedPerson} />
+        <MainTable columns={columns} data={formattedPerson} />
       </div>
     </div>
   );
