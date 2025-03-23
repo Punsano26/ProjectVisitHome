@@ -23,7 +23,7 @@ const Page = () => {
 
   const handleSelectYear = (year) => {
     localStorage.setItem("selectedYear", year); // บันทึกปีที่เลือก
-    router.push("/admin/add-class"); // เปลี่ยนหน้าไปที่หน้าถัดไป
+    router.push(`/admin/add-class/${year}`); // เปลี่ยนหน้าไปที่หน้าถัดไป
   };
 
   return (
@@ -34,7 +34,7 @@ const Page = () => {
             years.map((year, index) => (
               <button
                 key={index}
-                className="btn btn-outline size-40 rounded-xl text-4xl"
+                className="btn btn-outline size-40 rounded-xl text-4xl text-gray-800"
                 onClick={() => handleSelectYear(year.year)}
               >
                 {year.year}
@@ -46,7 +46,7 @@ const Page = () => {
                 className="btn btn-outline size-40 rounded-xl"
                 onClick={() => document.getElementById("add_year").showModal()}
               >
-                <FaPlus className="size-36" />
+                <FaPlus className="size-28 text-gray-800" />
               </button>
             </div>
           )}
