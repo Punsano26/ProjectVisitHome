@@ -3,8 +3,7 @@ import React from "react";
 const FamilyRelations = () => {
   return (
     <div>
-      
-      <div className="card w-96 md:w-full bg-base-100 card-lg shadow-sm">
+      <div className="card w-80 md:w-full bg-base-100 card-md shadow-sm md:px-20 md:py-10">
         <div className="card-body flex flex-col">
           <h2 className="card-title text-center">ข้อมูลความสำคัญในครอบครัว</h2>
           {/* สมาชิกในครอบครัว */}
@@ -14,7 +13,7 @@ const FamilyRelations = () => {
               <span className="text-red-600">*</span>
             </legend>
             <input
-              className="input validator w-20"
+              className="input validator w-30"
               type="number"
               required
               placeholder="กรอกจำนวนสมาชิกในครัวเรือน"
@@ -30,7 +29,7 @@ const FamilyRelations = () => {
               <span className="text-red-600">*</span>
             </legend>
             <input
-              className="input validator w-20"
+              className="input validator w-30"
               type="number"
               required
               placeholder="กรอกชั่วโมง"
@@ -165,7 +164,6 @@ const FamilyRelations = () => {
             <span className="text-red-600">*</span>
           </p>
           {/* กรณีที่ผู้ปกครองไม่อยู่บ้าน ฝากเด็กนักเรียนอยู่บ้านกับใคร */}
-
           <div>
             <fieldset className="fieldset mb-8">
               {/* ใช้ Grid สำหรับจัดเรียงให้รองรับหน้าจอมือถือและจอปกติ */}
@@ -199,9 +197,184 @@ const FamilyRelations = () => {
               </div>
             </fieldset>
           </div>
-          <div className="justify-end card-actions">
-            <button className="btn btn-primary">Buy Now</button>
+
+          <fieldset className="fieldset">
+            <legend className="fieldset-legend">
+              รายได้รวมของครัวเรือน <span className="text-red-600">*</span>
+            </legend>
+            <input
+              className="input validator"
+              type="number"
+              required
+              placeholder="กรอกรายได้รวมของครัวเรือน"
+            />
+            <div className="validator-hint">กรุณากรอกรายได้รวมของครัวเรือน</div>
+          </fieldset>
+
+          <fieldset className="fieldset">
+            <legend className="fieldset-legend">
+              นักเรียนได้เงินมาโรงเรียนวันละกี่บาท{" "}
+              <span className="text-red-600">*</span>
+            </legend>
+            <input
+              className="input validator"
+              type="number"
+              required
+              placeholder="กรอกเงินค่าขนม"
+            />
+            <div className="validator-hint">กรุณากรอกเงินค่าขนม</div>
+          </fieldset>
+
+          {/* นักเรียนได้รับค่าใช้จ่ายจาก */}
+          <fieldset className="fieldset">
+            <legend className="fieldset-legend">
+              นักเรียนได้รับค่าใช้จ่ายจาก{" "}
+              <span className="text-red-600">*</span>
+            </legend>
+            <select defaultValue="บิดา" className="select validator">
+              <option disabled={true}>กรุณาเลือก</option>
+              <option>บิดา</option>
+              <option>มารดา</option>
+              <option>พี่สาว</option>
+              <option>พี่ชาย</option>
+              <option>ปู่</option>
+              <option>ย่า</option>
+              <option>ตา</option>
+              <option>ยาย</option>
+              <option>ญาติ</option>
+            </select>
+            <div className="validator-hint">
+              กรุณาเลือกความสัมพันธ์ระหว่างญาติ
+            </div>
+          </fieldset>
+
+          <div className="flex flex-wrap md:flex-row gap-4">
+            {/* อาชีพที่ทำรายได้พิเศษ */}
+            <fieldset className="fieldset flex-1 min-w-[250px]">
+              <legend className="fieldset-legend">
+                นักเรียนทำงานรายได้พิเศษ อาชีพ{" "}
+                <span className="text-red-600">*</span>
+              </legend>
+              <input
+                className="input validator w-full"
+                type="text"
+                required
+                placeholder="กรอกอาชีพที่ทำ"
+              />
+              <div className="validator-hint">กรุณากรอกอาชีพของนักเรียน</div>
+            </fieldset>
+
+            {/* รายได้ */}
+            <fieldset className="fieldset flex-1 min-w-[250px]">
+              <legend className="fieldset-legend">
+                รายได้วันละ <span className="text-red-600">*</span>
+              </legend>
+              <div className="flex items-center gap-2">
+                <input
+                  className="input validator"
+                  type="number"
+                  placeholder="ระบุรายได้"
+                />
+                <span className="text-gray-600">บาท</span>
+              </div>
+              <div className="validator-hint">กรุณากรอกรายได้ของนักเรียน</div>
+            </fieldset>
           </div>
+          <p className="text-sm">
+            สิ่งที่ผู้ปกครองต้องการให้โรงเรียนช่วยเหลือนักเรียน *{" "}
+            <span className="text-red-600">*</span>
+          </p>
+          <div>
+            <fieldset className="fieldset mb-8">
+              {/* ใช้ Grid สำหรับจัดเรียงให้รองรับหน้าจอมือถือและจอปกติ */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-3">
+                <label className="flex items-center space-x-2">
+                  <input type="radio" name="status" className="radio" />
+                  <span>ด้านการเรียน</span>
+                </label>
+
+                <label className="flex items-center space-x-2">
+                  <input type="radio" name="status" className="radio" />
+                  <span>ด้านพฤติกรรม</span>
+                </label>
+
+                <label className="flex items-center space-x-2">
+                  <input type="radio" name="status" className="radio" />
+                  <span>ด้านเศรษฐกิจ (เช่น ขอรับทุน)</span>
+                </label>
+
+                <label className="flex items-center space-x-2">
+                  <input type="radio" name="status" className="radio" />
+                  <span>
+                    อื่นๆ ระบุ
+                    <input
+                      className="input validator w-24 sm:w-32 md:w-40 lg:w-52 ml-2"
+                      type="text"
+                      placeholder="บุคคลอื่นๆ"
+                    />
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+          </div>
+          <p className="text-sm">
+            ความช่วยเหลือที่ครอบครัวเคยได้รับจากหน่วยงานหรือต้องการได้รับการช่วยเหลือ{" "}
+            <span className="text-red-600">*</span>
+          </p>
+          <div>
+            <fieldset className="fieldset mb-8">
+              {/* ใช้ Grid สำหรับจัดเรียงให้รองรับหน้าจอมือถือและจอปกติ */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 mt-3">
+                <label className="flex items-center space-x-2">
+                  <input type="radio" name="status" className="radio" />
+                  <span>เบี้ยผู้สูงอายุ</span>
+                </label>
+
+                <label className="flex items-center space-x-2">
+                  <input type="radio" name="status" className="radio" />
+                  <span>เบี้ยคนพิการ</span>
+                </label>
+
+                <label className="flex items-center space-x-2">
+                  <input type="radio" name="status" className="radio" />
+                  <span>
+                    อื่นๆ ระบุ
+                    <input
+                      className="input validator w-24 sm:w-32 md:w-40 lg:w-52 ml-2"
+                      type="text"
+                      placeholder="บุคคลอื่นๆ"
+                    />
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+          </div>
+
+          <fieldset className="fieldset">
+            <legend className="fieldset-legend">
+              ความห่วงใยของผู้ปกครองที่มีต่อนักเรียน{" "}
+              <span className="text-red-600">*</span>
+            </legend>
+            <textarea
+              className="input validator w-full h-40"
+              type="text"
+              required
+              placeholder="กรอกอาชีพของบิดา"
+            />
+            <div className="validator-hint">
+              กรุณากรอกความห่วงใยของผู้ปกครองที่มีต่อนักเรียน
+            </div>
+          </fieldset>
+
+          <div className="flex justify-between items-center w-full p-4">
+            <button className="btn btn-prev-next">ก่อนหน้า</button>
+            <button className="btn btn-prev-next">ถัดไป</button>
+          </div>
+          <div className="flex justify-center items-center space-x-2">
+            <button className="btn btn-danger">ยกเลิก</button>
+            <button className="btn btn-scc">บันทึก</button>
+          </div>
+
         </div>
       </div>
     </div>

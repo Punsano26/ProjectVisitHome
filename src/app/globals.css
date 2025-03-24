@@ -40,19 +40,19 @@
 }
 
 .btn-scc {
-  @apply text-base px-10 h-[48px] rounded-[8px] bg-emerald text-back hover:bg-emerald_hover;
+  @apply text-base md:px-10 h-[48px] rounded-[8px] bg-emerald text-back hover:bg-emerald_hover;
 }
 
 .btn-warn {
-  @apply text-base px-10 h-[48px] rounded-[8px] bg-yellow text-back hover:bg-yellow_hover;
+  @apply text-base md:px-10 h-[48px] rounded-[8px] bg-yellow text-back hover:bg-yellow_hover;
 }
 
 .btn-danger {
-  @apply text-base px-10 h-[48px] rounded-[8px] bg-red text-back hover:bg-red_hover;
+  @apply text-base md:px-10 h-[48px] rounded-[8px] bg-red text-back hover:bg-red_hover;
 }
 
 .btn-prev-next {
-  @apply text-base px-10 h-[48px] rounded-[8px] bg-neutral_content text-back hover:bg-neutral_content_hover;
+  @apply text-base md:px-10 h-[48px] rounded-[8px] bg-neutral_content text-back hover:bg-neutral_content_hover;
 }
 
 .btn-login {
