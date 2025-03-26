@@ -1,3 +1,4 @@
+
 "use client";
 import React from 'react'
 import { Stepper } from "@componentsStepper";
@@ -17,4 +18,3 @@ const page = () => {
   )
 }
 
-export default page;
