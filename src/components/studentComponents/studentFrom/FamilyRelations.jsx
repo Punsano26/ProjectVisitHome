@@ -5,7 +5,7 @@ const FamilyRelations = () => {
     <div>
       <div className="card w-80 md:w-full bg-base-100 card-md shadow-sm md:px-20 md:py-10">
         <div className="card-body flex flex-col">
-          <h2 className="card-title text-center">ข้อมูลความสำคัญในครอบครัว</h2>
+          <h2 className="card-title text-center">ข้อมูลความสำพันธ์ในครอบครัว</h2>
           {/* สมาชิกในครอบครัว */}
           <fieldset className="fieldset w-full">
             <legend className="fieldset-legend ">
