@@ -1,6 +1,8 @@
-import React from "react";
+"use client";
+import { useRouter } from "next/navigation";
 
-const FamilyRelations = () => {
+const FamilyRelations = ({ setFamilyRelation, familyRelation }) => {
+  const router = useRouter();
   return (
     <div>
       <div className="card w-80 md:w-full bg-base-100 card-md shadow-sm md:px-20 md:py-10">
@@ -367,14 +369,23 @@ const FamilyRelations = () => {
           </fieldset>
 
           <div className="flex justify-between items-center w-full p-4">
-            <button className="btn btn-prev-next">ก่อนหน้า</button>
-            <button className="btn btn-prev-next">ถัดไป</button>
+            <button
+              onClick={() => router.push("/student/add-selfinfo")}
+              className="btn btn-prev-next"
+            >
+              ก่อนหน้า
+            </button>
+            <button
+              onClick={() => router.push("/student/add-familystatus")}
+              className="btn btn-prev-next"
+            >
+              ถัดไป
+            </button>
           </div>
           <div className="flex justify-center items-center space-x-2">
             <button className="btn btn-danger">ยกเลิก</button>
             <button className="btn btn-scc">บันทึก</button>
           </div>
-
         </div>
       </div>
     </div>
