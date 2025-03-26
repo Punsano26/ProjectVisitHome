@@ -6,67 +6,54 @@ const Navbar = () => {
   const { GoogleLogin, user, logout } = useContext(AuthContext);
   console.log(user);
 
-  const studentNav = [
-    { label: "หน้าหลัก", link: "/student" },
-    { label: "จัดการข้อมูลการเยี่ยมบ้าน", link: "/student/" },
-    { label: "ประเมิน SDQ", link: "/student/" },
-  ];
+  const studentNav = (
+    <>
+      <li>
+        <a href="/student">หน้าหลัก</a>
+      </li>
+      <li>
+        <a href="/student">จัดการข้อมูลการเยี่ยมบ้าน</a>
+      </li>
+      <li tabIndex={0}>
+        <details>
+          <summary>ประเมิน SDQ</summary>
+          <ul>
+            <li>
+              <a href="/student">ผู้ปกครอง</a>
+            </li>
+            <li>
+              <a href="/student">นักเรียน</a>
+            </li>
+          </ul>
+        </details>
+      </li>
+    </>
+  );
 
-  const teacherNav = [
-    { label: "หน้าหลัก", link: "/teacher" },
-    { label: "รายชื่อนักเรียน", link: "/teacher/" },
-    { label: "ผลประเมิน SDQ", link: "/teacher/" },
-  ];
+  const teacherNav = (
+    <>
+      <li>
+        <a href="/teacher">หน้าหลัก</a>
+      </li>
+      <li>
+        <a href="/teacher">รายชื่อนักเรียน</a>
+      </li>
+      <li>
+        <a href="/teacher">ผลประเมิน SDq</a>
+      </li>
+    </>
+  );
 
-  const adminNav = [
-    { label: "หน้าหลัก", link: "/admin" },
-    { label: "บุคลากร", link: "/admin/personnel" },
-  ];
-
-  // const studentNav = (
-  //   <>
-  //     <li>
-  //       <a href="/student">หน้าหลัก</a>
-  //     </li>
-  //     <li>
-  //       <a href="/student">จัดการข้อมูลการเยี่ยมบ้าน</a>
-  //     </li>
-  //     <ul>
-  //       ประเมิน SDQ
-  //       <li>
-  //         <a href="/student">ผู้ปกครอง</a>
-  //       </li>
-  //       <li>
-  //         <a href="/student">นักเรียน</a>
-  //       </li>
-  //     </ul>
-  //   </>
-  // );
-
-  // const teacherNav = (
-  //   <>
-  //     <li>
-  //       <a href="/teacher">หน้าหลัก</a>
-  //     </li>
-  //     <li>
-  //       <a href="/teacher">รายชื่อนักเรียน</a>
-  //     </li>
-  //     <li>
-  //       <a href="/teacher">ผลประเมิน SDq</a>
-  //     </li>
-  //   </>
-  // );
-
-  // const adminNav = (
-  //   <>
-  //     <li>
-  //       <a href="/admin">หน้าหลัก</a>
-  //     </li>
-  //     <li>
-  //       <a href="/admin/personnel">บุคลากร</a>
-  //     </li>
-  //   </>
-  // );
+  const adminNav = (
+    <>
+      <li>
+        <a href="/admin">หน้าหลัก</a>
+      </li>
+      <li>
+        <a href="/admin/personnel">บุคลากร</a>
+      </li>
+    </>
+  );
 
   return (
     <div>
@@ -100,29 +87,11 @@ const Navbar = () => {
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
               >
                 {user?.user?.role[0] === "Admin" ? (
-                  adminNav.map((item, index) => {
-                    return (
-                      <li key={index}>
-                        <a href={item.link}>{item.label}</a>
-                      </li>
-                    );
-                  })
+                  adminNav
                 ) : user?.user?.role[0] === "Teacher" ? (
-                  teacherNav.map((item, index) => {
-                    return (
-                      <li key={index}>
-                        <a href={item.link}>{item.label}</a>
-                      </li>
-                    );
-                  })
+                  teacherNav
                 ) : user?.user?.role[0] === "Student" ? (
-                  studentNav.map((item, index) => {
-                    return (
-                      <li key={index}>
-                        <a href={item.link}>{item.label}</a>
-                      </li>
-                    );
-                  })
+                  studentNav
                 ) : (
                   <></>
                 )}
@@ -140,29 +109,11 @@ const Navbar = () => {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
               {user?.user?.role === "Admin" ? (
-                adminNav.map((item, index) => {
-                  return (
-                    <li key={index}>
-                      <a href={item.link}>{item.label}</a>
-                    </li>
-                  );
-                })
+                adminNav
               ) : user?.user?.role === "Teacher" ? (
-                teacherNav.map((item, index) => {
-                  return (
-                    <li key={index}>
-                      <a href={item.link}>{item.label}</a>
-                    </li>
-                  );
-                })
+                teacherNav
               ) : user?.user?.role[0] === "Student" ? (
-                studentNav.map((item, index) => {
-                  return (
-                    <li key={index}>
-                      <a href={item.link}>{item.label}</a>
-                    </li>
-                  );
-                })
+                studentNav
               ) : (
                 <></>
               )}

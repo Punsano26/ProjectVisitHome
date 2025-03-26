@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import StudentPicAdd from "@componentsStudentPicAdd";
+import { Stepper } from "@componentsStepper";
 
 const AddSelfInfo = () => {
   const router = useRouter();
@@ -22,34 +23,7 @@ const AddSelfInfo = () => {
       <h3 className="h5 text-center">ข้อมูลการเยี่ยมบ้านของ นาย ... ....</h3>
 
       {/* Stepper section */}
-      <div className="flex justify-center my-4">
-        <ul className="steps">
-          <li
-            onClick={() => router.push("/student/add-selfinfo")}
-            className="step step-warning hover:cursor-pointer"
-          >
-            ข้อมูลส่วนตัว
-          </li>
-          <li
-            onClick={() => router.push("/student/add-relation")}
-            className="step hover:cursor-pointer"
-          >
-            ข้อมูลความสัมพันธ์ในครอบครัว
-          </li>
-          <li
-            onClick={() => router.push("/student/add-familystatus")}
-            className="step hover:cursor-pointer"
-          >
-            ข้อมูลสถานะครัวเรือน
-          </li>
-          <li
-            onClick={() => router.push("/student/add-behavior")}
-            className="step hover:cursor-pointer"
-          >
-            ข้อมูลพฤติกรรมและความเสี่ยง
-          </li>
-        </ul>
-      </div>
+      <Stepper step={1}/>
 
       {/* Form section */}
       <div className="flex justify-center w-full mx-auto">
