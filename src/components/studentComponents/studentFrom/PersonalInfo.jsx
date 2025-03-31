@@ -7,11 +7,7 @@ const PersonalInfo = ({
   setStudentPic,
   parentCheck,
   setParentCheck,
-  selfInfoData,
-  setSelfInfoData,
-  handleChange,
-  submit,
-  cancel,
+  formik,
 }) => {
   const router = useRouter();
   const handleSelectPic = () => {
@@ -22,6 +18,7 @@ const PersonalInfo = ({
     setParentCheck((prev) => !prev);
     console.log(parentCheck);
   };
+
   return (
     <div className="flex justify-center w-full mx-auto">
       <div className="bg-base-200 w-[50%] px-28 py-8 rounded-2xl">
@@ -39,25 +36,33 @@ const PersonalInfo = ({
             ชื่อ - นามสกุล <span className="text-red-600">*</span>
           </legend>
           <input
-            className="input validator w-full"
+            className="input w-full"
+            value={formik.values.stdName}
+            onChange={formik.handleChange}
+            name="stdName"
             type="text"
             required
             placeholder="กรอกชื่อและนามสกุลของนักเรียน"
           />
-          <div className="validator-hint">
-            กรุณากรอกชื่อและนามสกุลของนักเรียน
-          </div>
+          {formik.errors.stdName && formik.touched.stdName && (
+            <div className="text-red-600">{formik.errors.stdName}</div>
+          )}
         </fieldset>
         {/* Class */}
         <fieldset className="fieldset">
           <legend className="fieldset-legend">
             ชั้นเรียน <span className="text-red-600">*</span>
           </legend>
-          <select defaultValue="เลือกชั้นเรียน" className="select validator">
-            <option disabled={true}>เลือกชั้นเรียน</option>
-            <option>Crimson</option>
-            <option>Amber</option>
-            <option>Velvet</option>
+          <select
+            defaultValue="เลือกชั้นเรียน"
+            className="select validator"
+            value={formik.values.classroom}
+            onChange={formik.handleChange}
+            name="classroom"
+          >
+            <option>5/1</option>
+            <option>5/2</option>
+            <option>5/3</option>
           </select>
           <div className="validator-hint">กรุณาเลือกชั้นเรียน</div>
         </fieldset>
@@ -69,6 +74,10 @@ const PersonalInfo = ({
             </legend>
             <input
               className="input validator"
+              value={formik.values.stdNumber}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              name="stdNumber"
               type="text"
               required
               placeholder="กรอกเลขที่"
@@ -81,6 +90,10 @@ const PersonalInfo = ({
             </legend>
             <input
               className="input validator"
+              value={formik.values.stdPhone}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              name="stdPhone"
               type="text"
               required
               placeholder="กรอกเบอร์โทรศัพท์ของนักเรียน"
@@ -97,6 +110,9 @@ const PersonalInfo = ({
           </legend>
           <input
             className="input validator w-full"
+            value={formik.values.dadName}
+            onChange={formik.handleChange}
+            name="dadName"
             type="text"
             required
             placeholder="กรอกชื่อและนามสกุลของบิดา"
@@ -111,6 +127,10 @@ const PersonalInfo = ({
             </legend>
             <input
               className="input validator"
+              value={formik.values.dadCareer}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              name="dadCareer"
               type="text"
               required
               placeholder="กรอกอาชีพของบิดา"
@@ -123,6 +143,10 @@ const PersonalInfo = ({
             </legend>
             <input
               className="input validator"
+              value={formik.values.dadPhone}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              name="dadPhone"
               type="text"
               required
               placeholder="กรอกเบอร์โทรศัพท์ของบิดา"
@@ -137,6 +161,9 @@ const PersonalInfo = ({
           </legend>
           <input
             className="input validator w-full"
+            value={formik.values.momName}
+            onChange={formik.handleChange}
+            name="momName"
             type="text"
             required
             placeholder="กรอกชื่อและนามสกุลของมารดา"
@@ -151,6 +178,10 @@ const PersonalInfo = ({
             </legend>
             <input
               className="input validator"
+              value={formik.values.momCareer}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              name="momCareer"
               type="text"
               required
               placeholder="กรอกอาชีพของมารดา"
@@ -163,6 +194,10 @@ const PersonalInfo = ({
             </legend>
             <input
               className="input validator"
+              value={formik.values.momPhone}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              name="momPhone"
               type="text"
               required
               placeholder="กรอกเบอร์โทรศัพท์ของมารดา"
@@ -177,23 +212,58 @@ const PersonalInfo = ({
           </legend>
           <div className="flex space-x-8 w-full">
             <div className="flex space-x-1.5 items-center">
-              <input type="radio" name="status" className="radio" />
+              <input
+                type="radio"
+                value={formik.values.dadAndMomStatus}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                name="dadAndMomStatus"
+                className="radio"
+              />
               <span>อยู่ร่วมกัน</span>
             </div>
             <div className="flex space-x-1.5 items-center">
-              <input type="radio" name="status" className="radio" />
+              <input
+                type="radio"
+                value={formik.values.dadAndMomStatus}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                name="dadAndMomStatus"
+                className="radio"
+              />
               <span>แยกกันอยู่</span>
             </div>
             <div className="flex space-x-1.5 items-center">
-              <input type="radio" name="status" className="radio" />
+              <input
+                type="radio"
+                value={formik.values.dadAndMomStatus}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                name="dadAndMomStatus"
+                className="radio"
+              />
               <span>อย่าร้าง</span>
             </div>
             <div className="flex space-x-1.5 items-center">
-              <input type="radio" name="status" className="radio" />
+              <input
+                type="radio"
+                value={formik.values.dadAndMomStatus}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                name="dadAndMomStatus"
+                className="radio"
+              />
               <span>บิดาเสียชีวิต</span>
             </div>
             <div className="flex space-x-1.5 items-center">
-              <input type="radio" name="status" className="radio" />
+              <input
+                type="radio"
+                value={formik.values.dadAndMomStatus}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                name="dadAndMomStatus"
+                className="radio"
+              />
               <span>มารดาเสียชีวิต</span>
             </div>
           </div>
@@ -217,20 +287,22 @@ const PersonalInfo = ({
             ความสัมพันธ์ของผู้ปกครองกับนักเรียน
           </legend>
           <select
-            name="parent-relation"
-            id="parent-relation"
+            name="parentRelation"
+            id="parentRelation"
             className="select"
+            value={formik.values.parentRelation}
+            onChange={formik.handleChange}
           >
-            <option value="บิดา">บิดา</option>
-            <option value="มารดา">มารดา</option>
-            <option value="ลุง">ลุง</option>
-            <option value="ป้า">ป้า</option>
-            <option value="น้า">น้า</option>
-            <option value="อา">อา</option>
-            <option value="ปู่">ปู่</option>
-            <option value="ย่า">ย่า</option>
-            <option value="ตา">ตา</option>
-            <option value="ยาย">ยาย</option>
+            <option>บิดา</option>
+            <option>มารดา</option>
+            <option>ลุง</option>
+            <option>ป้า</option>
+            <option>น้า</option>
+            <option>อา</option>
+            <option>ปู่</option>
+            <option>ย่า</option>
+            <option>ตา</option>
+            <option>ยาย</option>
           </select>
         </fieldset>
         <fieldset className="fieldset">
@@ -239,6 +311,9 @@ const PersonalInfo = ({
           </legend>
           <input
             className="input validator w-full"
+            value={formik.values.parentName}
+            onChange={formik.handleChange}
+            name="parentName"
             type="text"
             required
             placeholder="กรอกชื่อและนามสกุลของผู้ปกครอง"
@@ -255,6 +330,10 @@ const PersonalInfo = ({
             </legend>
             <input
               className="input validator"
+              value={formik.values.parentCareer}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              name="parentCareer"
               type="text"
               required
               placeholder="กรอกอาชีพของผู้ปกครอง"
@@ -267,6 +346,10 @@ const PersonalInfo = ({
             </legend>
             <input
               className="input validator"
+              value={formik.values.parentPhone}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              name="parentPhone"
               type="text"
               required
               placeholder="กรอกเบอร์โทรศัพท์ของผู้ปกครอง"
@@ -284,6 +367,10 @@ const PersonalInfo = ({
             </legend>
             <input
               className="input validator"
+              value={formik.values.lat}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              name="lat"
               type="text"
               required
               placeholder="ละติจูด"
@@ -296,6 +383,10 @@ const PersonalInfo = ({
             </legend>
             <input
               className="input validator"
+              value={formik.values.lng}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              name="lng"
               type="text"
               required
               placeholder="ลองจิจูด"
