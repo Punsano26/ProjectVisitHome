@@ -1,13 +1,13 @@
 import * as yup from "yup";
 
-const textOnly = /^[A-Za-z\s]+$/;
+const textOnly = /^[\u0E00-\u0E7F]+$/;
 const numberOnly = /^\d+$/;
 const numberAndDot = /^\d+(\.\d+)?$/;
 
 export const selfInfoSchema = yup.object().shape({
   stdName: yup
     .string()
-    .matches(textOnly, { message: "ชื่อไม่ควรมีตัวอักษรพิเศษ" })
+    .matches(textOnly, { message: "ชื่อควรเป็นภาษาไทย" })
     .required("กรุณากรอกชื่อ"),
   classroom: yup.string().required("กรุณาเลือกชั้นเรียน"),
   stdNumber: yup
@@ -20,7 +20,7 @@ export const selfInfoSchema = yup.object().shape({
     .required("กรุณากรอเบอร์โทรศัพท์"),
   dadName: yup
     .string()
-    .matches(textOnly, { message: "ชื่อไม่ควรมีตัวอักษรพิเศษ" })
+    .matches(textOnly, { message: "ชื่อควรเป็นภาษาไทย" })
     .required("กรุณากรอกชื่อ"),
   dadCareer: yup
     .string()
@@ -32,7 +32,7 @@ export const selfInfoSchema = yup.object().shape({
     .required("กรุณากรอเบอร์โทรศัพท์"),
   momName: yup
     .string()
-    .matches(textOnly, { message: "ชื่อไม่ควรมีตัวอักษรพิเศษ" })
+    .matches(textOnly, { message: "ชื่อควรเป็นภาษาไทย" })
     .required("กรุณากรอกชื่อ"),
   momCareer: yup
     .string()
@@ -46,7 +46,7 @@ export const selfInfoSchema = yup.object().shape({
   parentRelation: yup.string().required("กรุณาเลือกคำตอบ"),
   parentName: yup
     .string()
-    .matches(textOnly, { message: "ชื่อไม่ควรมีตัวอักษรพิเศษ" })
+    .matches(textOnly, { message: "ชื่อควรเป็นภาษาไทย" })
     .required("กรุณากรอกชื่อ"),
   parentCareer: yup
     .string()

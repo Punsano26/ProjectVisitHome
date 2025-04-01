@@ -36,17 +36,16 @@ const PersonalInfo = ({
             ชื่อ - นามสกุล <span className="text-red-600">*</span>
           </legend>
           <input
-            className="input w-full"
+            className="input validator w-full"
             value={formik.values.stdName}
             onChange={formik.handleChange}
             name="stdName"
             type="text"
             required
+            pattern="[\u0E00-\u0E7F]+"
             placeholder="กรอกชื่อและนามสกุลของนักเรียน"
           />
-          {formik.errors.stdName && formik.touched.stdName && (
-            <div className="text-red-600">{formik.errors.stdName}</div>
-          )}
+          <div className="validator-hint">{formik.errors.stdName}</div>
         </fieldset>
         {/* Class */}
         <fieldset className="fieldset">
@@ -54,7 +53,6 @@ const PersonalInfo = ({
             ชั้นเรียน <span className="text-red-600">*</span>
           </legend>
           <select
-            defaultValue="เลือกชั้นเรียน"
             className="select validator"
             value={formik.values.classroom}
             onChange={formik.handleChange}
@@ -115,9 +113,10 @@ const PersonalInfo = ({
             name="dadName"
             type="text"
             required
+            pattern="[\u0E00-\u0E7F]+"
             placeholder="กรอกชื่อและนามสกุลของบิดา"
           />
-          <div className="validator-hint">กรุณากรอกชื่อและนามสกุลของบิดา</div>
+          <div className="validator-hint">{formik.errors.dadName}</div>
         </fieldset>
         {/* Job and Phone */}
         <div className="flex w-full space-x-10">
@@ -166,9 +165,10 @@ const PersonalInfo = ({
             name="momName"
             type="text"
             required
+            pattern="[\u0E00-\u0E7F]+"
             placeholder="กรอกชื่อและนามสกุลของมารดา"
           />
-          <div className="validator-hint">กรุณากรอกชื่อและนามสกุลของมารดา</div>
+          <div className="validator-hint">{formik.errors.momName}</div>
         </fieldset>
         {/* Job and Phone */}
         <div className="flex w-full space-x-10">
@@ -288,7 +288,6 @@ const PersonalInfo = ({
           </legend>
           <select
             name="parentRelation"
-            id="parentRelation"
             className="select"
             value={formik.values.parentRelation}
             onChange={formik.handleChange}
@@ -316,12 +315,11 @@ const PersonalInfo = ({
             name="parentName"
             type="text"
             required
+            pattern="[\u0E00-\u0E7F]+"
             placeholder="กรอกชื่อและนามสกุลของผู้ปกครอง"
             disabled={parentCheck === true}
           />
-          <div className="validator-hint">
-            กรุณากรอกชื่อและนามสกุลของผู้ปกครอง
-          </div>
+          <div className="validator-hint">{formik.errors.parentName}</div>
         </fieldset>
         <div className="flex w-full space-x-10">
           <fieldset className="fieldset">
