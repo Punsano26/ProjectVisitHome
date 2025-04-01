@@ -7,13 +7,16 @@ const Footer = () => {
       <div className="footer">
         <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10 ">
           <aside>
-            <img className="w-20 h-20" src="../logoschool.png" alt="" />
+            <img
+              className="w-20 h-20"
+              src="https://lh3.googleusercontent.com/R63i9bodUlMIZauoX7uNSaQUQdot8FwPEN_-urMwbEKDKgvKTSEn3ObQOFc6BgfMeXLGxKy9Xe1rCuXF-AZmEWY=w16383"
+              alt=""
+            />
             <p>
               โรงเรียนบางแพปฐมพิทยา
               <br />
               159 หมู่ 3 ต.บางแพ อ.บางแพ จ.ราชบุรี 70160
             </p>
-        
           </aside>
           <nav>
             <h6 className="footer-title">ช่องทางติดต่อ</h6>

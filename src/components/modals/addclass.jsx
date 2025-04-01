@@ -1,6 +1,17 @@
-import React from "react";
+"use client";
+import * as yup from "yup";
+import { useFormik } from "formik";
 
 const addclass = () => {
+  const formik = useFormik({
+    initialValues: {
+      classroom: "",
+      advisor: "",
+    },
+    validationSchema: yup.object().shape({
+      classroom: yup.string().matches()
+    }),
+  });
   return (
     <dialog id="add_class" className="modal">
       <div className="modal-box flex flex-col items-center justify-center w-11/12">

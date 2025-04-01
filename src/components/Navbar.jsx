@@ -99,7 +99,7 @@ const Navbar = () => {
             </div>
           )}
           <a className="btn btn-ghost text-sm">
-            <img src="../logoschool.png" alt="logoschool" className="w-8 h-8" />
+            <img src="https://lh3.googleusercontent.com/R63i9bodUlMIZauoX7uNSaQUQdot8FwPEN_-urMwbEKDKgvKTSEn3ObQOFc6BgfMeXLGxKy9Xe1rCuXF-AZmEWY=w16383" alt="logoschool" className="w-8 h-8" />
             <h3 className="hidden md:block md:text-sm">
               ระบบบันทึกการเยี่ยมบ้านโรงเรียนบางแพปฐมพิทยา
             </h3>

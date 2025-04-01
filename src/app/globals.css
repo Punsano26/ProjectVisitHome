@@ -40,7 +40,7 @@
 }
 
 .btn-scc {
-  @apply text-base md:px-10 h-[48px] rounded-[8px] bg-emerald text-back hover:bg-emerald_hover;
+  @apply text-base md:px-10 h-[48px] rounded-[8px] bg-emerald text-white hover:bg-emerald_hover;
 }
 
 .btn-warn {

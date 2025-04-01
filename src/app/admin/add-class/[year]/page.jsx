@@ -89,13 +89,15 @@ const page = ({ params }) => {
               </svg>
               <input type="search" required placeholder="กรอกชื่อนักเรียน" />
             </label>
-            <button
-              onClick={() => document.getElementById("add_class").showModal()}
-              className="btn-scc"
-            >
-              เพิ่มชั้นเรียน
-            </button>
           </div>
+        </div>
+        <div className="flex justify-end">
+          <button
+            onClick={() => document.getElementById("add_class").showModal()}
+            className="btn-scc"
+          >
+            เพิ่มชั้นเรียน
+          </button>
         </div>
         <ModalAddClass />
         <ModalEditClass />
