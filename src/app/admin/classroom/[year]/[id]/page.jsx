@@ -1,14 +1,32 @@
 "use client";
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BiSolidEdit } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
 import ModalAddStudent from '@components/modals/addstudent';
 
-const page = () => {
+const page = ({params}) => {
+  const {year, id} = params;
+  const [grade, setGrade] = useState("");
+  const [room, setRoom] = useState("");
+
+  useEffect(() => {
+   const fetchClassroom = async () => {
+
+    const res = await fetch(`/api/classroom`)
+    .then(res => res.json())
+    if(res){
+      console.log("hello",res);
+      setGrade(res.data.grade)
+      setRoom(res.data.room)
+    }
+   }
+    fetchClassroom()
+  },[])
+  
   return (
     <div className='p-2 h-screen section-container'>
          <h5 className="text-center font-bold">
-          มัธยมศึกษาปีที่<span className='text-green_light'>5/1</span>
+          มัธยมศึกษาปีที่<span className='text-green_light'> {grade} / {room}</span> 
         </h5>
          {/* ฟีเจอร์เสริม */}
          <div className="flex items-center justify-between m-2 mt-4 mb-4">

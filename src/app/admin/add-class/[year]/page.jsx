@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { BiSolidEdit } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
 import ModalAddClass from "@components/modals/addclass";
@@ -8,6 +9,7 @@ import ModalEditClass from "@componentsmodals/editClass";
 const page = ({ params }) => {
   const { year } = params;
   const [classes, setClasses] = useState([]);
+  const router = useRouter();
   const classesMockup = [
     { id: 1, grade: 1, room: 1, students: 32, teacher: "ครูณัฐวุฒิ" },
     { id: 2, grade: 1, room: 2, students: 88, teacher: "ครูxxx" },
@@ -17,7 +19,7 @@ const page = ({ params }) => {
     { id: 6, grade: 3, room: 2, students: 45, teacher: "ครูbbb" },
     { id: 7, grade: 4, room: 1, students: 88, teacher: "ครูccc" },
     { id: 8, grade: 4, room: 2, students: 77, teacher: "ครูddd" },
-    { id: 9, grade: 5, room: 1, students: 66, teacher: "ครูeee" },
+    { id: 9, grade: 5, room: 1, students: 29, teacher: "ครูeee" },
     { id: 10, grade: 5, room: 2, students: 45, teacher: "ครูfff" },
     { id: 11, grade: 6, room: 1, students: 54, teacher: "ครูggg" },
     { id: 12, grade: 6, room: 2, students: 78, teacher: "ครูhhh" },
@@ -25,6 +27,10 @@ const page = ({ params }) => {
   useEffect(() => {
     setClasses(classesMockup);
   }, []);
+
+  const handleGoToClass = (id) => {
+    router.push(`/admin/classroom/${year}/${id}`);
+  };
   return (
     <div className="flex flex-col section-container">
       <div className="p-2">
@@ -123,7 +129,8 @@ const page = ({ params }) => {
               {classes?.length > 0 &&
                 classes.map((item, index) => {
                   return (
-                    <tr key={index}>
+                    <tr key={index} className="hover:bg-gray-100 cursor-pointer" 
+                    onClick={() => handleGoToClass(item.id)}>
                       <th>
                         <label>
                           <input type="checkbox" className="checkbox" />
