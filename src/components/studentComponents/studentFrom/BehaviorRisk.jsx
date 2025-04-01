@@ -300,6 +300,54 @@ const BehaviorRisk = () => {
               </div>
             </fieldset>
           </div>
+
+          {/* หน้าถัดมาส่วนที่ 2 จะเป็นข้อมูลเกี่ยวกับพฤติกรรมและความเสี่ยงของนักเรียน */}
+          {/* พฤติกรรมการใช้สารเสพติด */}
+          <div>
+            <fieldset className="fieldset mb-8">
+              {/* ใช้ Grid สำหรับจัดเรียงให้รองรับหน้าจอมือถือและจอปกติ */}
+              <legend className="fieldset-legend text-base">
+              พฤติกรรมการใช้สารเสพติด ( ตอบได้มากกว่า 1 ข้อ )
+              <span className="text-red-600">*</span>
+              </legend>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-3 text-base">
+                <label className="flex items-center space-x-2">
+                  <input type="checkbox" name="status" className="checkbox" />
+                  <span>ไม่ได้เกี่ยวข้องกับสารเสพติดใดๆทั้งทางตรงและทางอ้อม</span>
+                </label>
+
+                <label className="flex items-center space-x-2">
+                  <input type="checkbox" name="status" className="checkbox" />
+                  <span>สมาชิกในครอบครัวข้องเกี่ยวกับยาเสพติด</span>
+                </label>
+                
+                <label className="flex items-center space-x-2">
+                  <input type="checkbox" name="status" className="checkbox" />
+                  <span>คบเพื่อนในกลุ่มที่ใช้สารเสพติด</span>
+                </label>
+                
+                <label className="flex items-center space-x-2">
+                  <input type="checkbox" name="status" className="checkbox" />
+                  <span>ปัจจุบันเกี่ยวข้องกับสารเสพติด</span>
+                </label>
+                
+                <label className="flex items-center space-x-2">
+                  <input type="checkbox" name="status" className="checkbox" />
+                  <span>อยู่ในสภาพแวดล้อมที่ใช้สารเสพติด</span>
+                </label>
+
+                <label className="flex items-center space-x-2">
+                  <input type="checkbox" name="status" className="checkbox" />
+                  <span>เป็นผู้ติดบุหรี่ สุรา หรือการใช้สารเสพติดอื่นๆ</span>
+                </label>
+              </div>
+            </fieldset>
+          </div>
+          {/* พฤติกรรมการใช้ความรุนแรง */}
+          {/* พฤติกรรมทางเพศ */}
+          {/* การติดเกม */}
+          {/* การเข้าถึงสื่อคอมพิวเตอร์และอินเตอร์เน็ตที่บ้าน */}
+          {/* การใช้เครื่องมือสื่อสารอิเล็กทรอนิกส */}
         </div>
       </div>
     </div>
