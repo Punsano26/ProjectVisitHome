@@ -74,15 +74,16 @@ const page = ({ params }) => {
             </svg>
             <input type="search" required placeholder="กรอกชื่อนักเรียน" />
           </label>
-          <button
-            onClick={() => document.getElementById("add_student").showModal()}
-            className="btn btn-success"
-          >
-            เพิ่มชั้นเรียน
-          </button>
         </div>
       </div>
-
+      <div className="flex justify-end">
+        <button
+          onClick={() => document.getElementById("add_student").showModal()}
+          className="btn btn-success"
+        >
+          เพิ่มนักเรียน
+        </button>
+      </div>
       <div className="flex gap-4 justify-satart">
         {" "}
         <h6>
@@ -92,7 +93,6 @@ const page = ({ params }) => {
           ข้อมูลติดต่อ :<span></span>
         </h6>
       </div>
-
       {/* ตารางแสดงรายชื่อนักเรียนขอห้องนี้ */}
       <div className="overflow-x-auto ">
         <table className="table">
