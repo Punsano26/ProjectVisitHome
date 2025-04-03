@@ -40,11 +40,11 @@ const page = () => {
   const showStatus = (status) => {
     switch (status) {
       case "รับราชการ":
-        return <div className="badge badge-dash badge-success">รับราชกาล</div>;
-      case "ลาออก":
-        return <h1>Good Afternoon!</h1>;
+        return <div className="badge badge-soft badge-success">รับราชการ</div>;
+      case "เกษียณ":
+        return <div className="badge badge-soft badge-warning">เกษียณ</div>;
       default:
-        return <h1>Hello!</h1>;
+        return <div className="badge badge-soft badge-error">ลาออก</div>;
     }
   };
 
