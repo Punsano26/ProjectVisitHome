@@ -141,6 +141,38 @@ const page = ({ params }) => {
                 </div>
               </td>
             </tr>
+
+            {classroom?.students?.length > 0 &&
+              classroom.students.map((item, index) => {
+                return (
+                  <tr key={index}>
+                    <th>
+                      <label>
+                        <input type="checkbox" className="checkbox" />
+                      </label>
+                    </th>
+                    <td className="text-center">{item.no}</td>
+                    <td className="text-center">
+                      <span>{item.mypass}</span>
+                    </td>
+                    <td className="">
+                      <span>{item.prefix}</span>
+                    </td>
+                    <td>
+                      <span>{item.firstname}</span>
+                    </td>
+                    <td>
+                      <span>{item.lastname}</span>
+                    </td>
+
+                    <td className="flex gap-4 items-center justify-center">
+                      <BiSolidEdit />
+                      <AiOutlineDelete />
+                    </td>
+                  </tr>
+                );
+              })}
+            
           </tbody>
         </table>
       </div>
