@@ -9,7 +9,7 @@ const Footer = () => {
           <aside>
             <img
               className="w-20 h-20"
-              src="https://lh3.googleusercontent.com/R63i9bodUlMIZauoX7uNSaQUQdot8FwPEN_-urMwbEKDKgvKTSEn3ObQOFc6BgfMeXLGxKy9Xe1rCuXF-AZmEWY=w16383"
+              src="../logoschool.png"
               alt=""
             />
             <p>
