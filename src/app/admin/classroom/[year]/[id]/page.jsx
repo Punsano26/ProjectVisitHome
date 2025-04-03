@@ -28,7 +28,7 @@ const page = ({ params }) => {
     <div className="p-2 h-screen section-container">
       <h5 className="text-center font-bold">
         มัธยมศึกษาปีที่
-        <span className="text-green_light">
+        <span className="">
           {" "}
           {classroom?.grade} / {classroom?.room}
         </span>
@@ -153,21 +153,26 @@ const page = ({ params }) => {
                     </th>
                     <td className="text-center">{item.no}</td>
                     <td className="text-center">
-                      <span>{item.mypass}</span>
+                      <span>{item.studentId}</span>
                     </td>
                     <td className="">
                       <span>{item.prefix}</span>
                     </td>
                     <td>
-                      <span>{item.firstname}</span>
+                      <span>{item.first_name}</span>
                     </td>
                     <td>
-                      <span>{item.lastname}</span>
+                      <span>{item.last_name}</span>
                     </td>
 
                     <td className="flex gap-4 items-center justify-center">
-                      <BiSolidEdit />
-                      <AiOutlineDelete />
+                      <button className="btn btn-warning btn-outline"> 
+                        <BiSolidEdit />
+                      </button>
+                      
+                      <button className="btn btn-error btn-outline">
+                          <AiOutlineDelete />
+                        </button>
                     </td>
                   </tr>
                 );
