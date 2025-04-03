@@ -39,7 +39,7 @@ const page = () => {
 
   const showStatus = (status) => {
     switch (status) {
-      case "รับราชกาล":
+      case "รับราชการ":
         return <div className="badge badge-dash badge-success">รับราชกาล</div>;
       case "ลาออก":
         return <h1>Good Afternoon!</h1>;
