@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { BiSolidEdit } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
 import ModalAddStudent from "@components/modals/addstudent";
+import ModalEditStudent from "@componentsmodals/editStudent";
 
 const page = ({ params }) => {
   const { year, id } = params;
@@ -138,7 +139,13 @@ const page = ({ params }) => {
                     <td className="flex gap-4 items-center justify-center">
 
 
-                      <button className="btn btn-outline btn-warning">
+                      <button
+                        onClick={() =>
+                          document.getElementById(index).showModal()
+                        }
+                        className="btn btn-outline btn-warning"
+                      >
+
                         <BiSolidEdit />
                       </button>
                       <button className="btn btn-outline btn-error">
@@ -146,6 +153,7 @@ const page = ({ params }) => {
                       </button>
 
                     </td>
+                    <ModalEditStudent std={item} id={index} />
                   </tr>
                 );
               })}
