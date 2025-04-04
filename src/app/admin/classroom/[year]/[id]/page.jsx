@@ -113,35 +113,6 @@ const page = ({ params }) => {
             </tr>
           </thead>
           <tbody>
-            {/* row 1 */}
-            <tr>
-              <th>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
-              </th>
-              <td className="text-center">0</td>
-              <td className="text-center">
-                <span>43453</span>
-              </td>
-              <td className="">
-                <span>นาย</span>
-              </td>
-              <td>
-                <span>พันแสน</span>
-              </td>
-              <td>
-                <span>สมกล้า</span>
-              </td>
-
-              <td>
-                <div className="flex gap-4 items-center justify-center">
-                  <BiSolidEdit />
-                  <AiOutlineDelete />
-                </div>
-              </td>
-            </tr>
-
             {classroom?.students?.length > 0 &&
               classroom.students.map((item, index) => {
                 return (
@@ -164,20 +135,20 @@ const page = ({ params }) => {
                     <td>
                       <span>{item.last_name}</span>
                     </td>
-
                     <td className="flex gap-4 items-center justify-center">
-                      <button className="btn btn-warning btn-outline"> 
+
+
+                      <button className="btn btn-outline btn-warning">
                         <BiSolidEdit />
                       </button>
-                      
-                      <button className="btn btn-error btn-outline">
-                          <AiOutlineDelete />
-                        </button>
+                      <button className="btn btn-outline btn-error">
+                        <AiOutlineDelete />
+                      </button>
+
                     </td>
                   </tr>
                 );
               })}
-            
           </tbody>
         </table>
       </div>
